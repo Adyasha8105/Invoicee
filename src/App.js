@@ -1,13 +1,18 @@
 import React from "react";
-import Navbar from "./components/Navbar";
-import logo from "./logo.svg";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+
+import Home from "./pages/Home";
 
 function App() {
-  return (
-    <div className="App">
-      <Navbar />
-    </div>
-  );
+	return (
+		<BrowserRouter>
+			<Switch>
+				<Route exact path="/">
+					<Home />
+				</Route>
+			</Switch>
+		</BrowserRouter>
+	);
 }
 
 export default App;
