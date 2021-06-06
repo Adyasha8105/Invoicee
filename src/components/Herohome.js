@@ -1,6 +1,8 @@
 import React from "react";
+import { useHistory } from "react-router-dom"; 
 
 function HeroHome() {
+    const history = useHistory(); 
     let primaryThemeColor = "#FECCCB";
     return (
         <section className="relative">
@@ -47,6 +49,7 @@ function HeroHome() {
                                 className="flex md:flex-row flex-col md:justify-center md:space-x-7"
                             >
                                 <button
+                                    onClick={(e) => {history.push('/new');}}
                                     className="bg-primary text-black font-bold rounded-md py-3 px-6 transition-all duration-200 ease-in-out w-full mb-4 md:w-auto md:mb-0 hover:opacity-75">
                                     Create Now
                                 </button>
