@@ -32,12 +32,12 @@ function HeroHome() {
                             data-aos="zoom-y-out"
                         >
                             Online Invoice <br/>
-                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-black-400">
+                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-gray-200">
 								Generator
 							</span>
                         </h1>
                         <div className="max-w-3xl mx-auto">
-                            <p className="text-xl text-gray-600 mb-8" data-aos="zoom-y-out" data-aos-delay="150">
+                            <p className="text-xl text-gray-600 my-8" data-aos="zoom-y-out" data-aos-delay="150">
                                 It allows you rapidly to make invoices with our attractive invoice templates for various
                                 fields.
                                 The invoices you make can be saved and downloaded as a PDF. <br/>
@@ -47,11 +47,11 @@ function HeroHome() {
                                 className="flex md:flex-row flex-col md:justify-center md:space-x-7"
                             >
                                 <button
-                                    className="bg-black text-white font-bold rounded-md py-3 px-6 transition-all duration-200 ease-in-out hover:bg-primary w-full mb-4 md:w-auto md:mb-0">
+                                    className="bg-primary text-black font-bold rounded-md py-3 px-6 transition-all duration-200 ease-in-out w-full mb-4 md:w-auto md:mb-0 hover:opacity-75">
                                     Create Now
                                 </button>
                                 <button
-                                    className="bg-black text-white font-bold rounded-md py-3 px-6 w-full md:w-auto transition-all duration-200 ease-in-out">
+                                    className="bg-black text-white font-bold rounded-md py-3 px-6 w-full md:w-auto transition-all duration-200 ease-in-out hover:opacity-75">
                                     Learn more
                                 </button>
                             </div>
