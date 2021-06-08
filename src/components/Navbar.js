@@ -23,7 +23,7 @@ function Navbar() {
                         <Link to="/" className="block" aria-label="Cruip">
                             {window.innerWidth > 640 ?
                                 <img src={require('../Images/Logo.svg').default} width="150" height="96" alt="logo"/> :
-                                <img src={require('../Images/Favicon.svg').default} width="36" height="36" alt="logo"/>
+                                <img src={require('../Images/Favicon.svg').default} width="26" height="26" alt="logo"/>
                             }
                         </Link>
                     </div>

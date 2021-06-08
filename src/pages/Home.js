@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import HeroHome from "../components/Herohome"
 import FeaturesBlock from "../components/FeaturesBlock"
+import Creators from "../components/creators"
 
 function Home() {
 	return (
@@ -11,6 +12,7 @@ function Home() {
 			<main className="flex-grow">
         <HeroHome />
 				<FeaturesBlock />
+				<Creators />
       </main>
 		</div>
 	);
