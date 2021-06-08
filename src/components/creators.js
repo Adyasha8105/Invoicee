@@ -1,7 +1,7 @@
 import React from "react";
 
 function Creators() {
-  let primaryThemeColor = "#FECCCB";
+	let primaryThemeColor = "#FECCCB";
 	return (
 		<section className="relative">
 			<div
@@ -26,14 +26,15 @@ function Creators() {
 			<div className="max-w-6xl mx-auto px-4 sm:px-6">
 				<div className="py-12 md:py-20">
 					<div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
-						<h2 className="md:text-6xl text-4xl font-extrabold leading-tighter tracking-tighter mb-4 relative">More nice words from Creators !</h2>
+						<h2 className="md:text-6xl text-4xl font-extrabold leading-tighter tracking-tighter mb-4 relative">
+							More nice words from Creators !
+						</h2>
 						<p className="text-xl text-gray-600 relative" data-aos="zoom-y-out">
 							Short Description
 						</p>
 					</div>
 
 					<div className="sm:flex max-w-5xl mx-auto mt-5 grid gap-20" data-aos="zoom-y-out">
-
 						<div className="relative flex items-start border-2 border-gray-200 rounded bg-white">
 							<div className="text-center px-12 py-8 pt-20 mx-4 md:mx-0">
 								<div className="absolute top-0 -mt-8 left-1/2 transform -translate-x-1/2">
@@ -59,7 +60,7 @@ function Creators() {
 							</div>
 						</div>
 
-            <div className="relative flex items-start border-2 border-gray-200 rounded bg-white">
+						<div className="relative flex items-start border-2 border-gray-200 rounded bg-white">
 							<div className="text-center px-12 py-8 pt-20 mx-4 md:mx-0">
 								<div className="absolute top-0 -mt-8 left-1/2 transform -translate-x-1/2">
 									<svg
@@ -72,18 +73,17 @@ function Creators() {
 									</svg>
 								</div>
 								<blockquote className="text-xl font-medium mb-4">
-									“ I love this product and would recommend it to anyone.  “
+									“ I love this product and would recommend it to anyone. “
 								</blockquote>
 								<cite className="block font-bold text-lg not-italic mb-1">Piyush Pradhan</cite>
 								<div className="text-gray-600">
 									<span>Developer</span>{" "}
 									<a className="text-primary hover:underline" href="/">
-                  @follow me
+										@follow me
 									</a>
 								</div>
 							</div>
 						</div>
-            
 					</div>
 				</div>
 			</div>

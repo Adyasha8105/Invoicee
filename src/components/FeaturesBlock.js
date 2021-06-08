@@ -1,5 +1,12 @@
 import React from "react";
-import { FaBeer, FaDribbbleSquare, FaSketch, FaWaze, FaAmericanSignLanguageInterpreting, FaChalkboardTeacher  } from "react-icons/fa";
+import {
+	FaBeer,
+	FaDribbbleSquare,
+	FaSketch,
+	FaWaze,
+	FaAmericanSignLanguageInterpreting,
+	FaChalkboardTeacher,
+} from "react-icons/fa";
 
 function FeaturesBlocks() {
 	return (
