@@ -3,12 +3,14 @@ import React from "react";
 
 const FileInputField = () => {
     return (
-        <div className="w-full border-dashed border border-gray-400 flex flex-row space-x-2 py-4 pl-4">
-            <div className="text-2xl">
-                <GrGallery/>
+        <button className="parent w-full border-dashed border-2 border-gray-400 border-opacity-20 bg-gray-50">
+            <div className="w-full  flex flex-row space-x-2 py-4 pl-4">
+                <div className="text-2xl">
+                    <GrGallery/>
+                </div>
+                <div className="">Select a file for your logo</div>
             </div>
-            <div className="">Select a file for your logo</div>
-        </div>
+        </button>
     );
 }
 

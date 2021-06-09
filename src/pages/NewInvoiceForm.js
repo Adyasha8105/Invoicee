@@ -5,12 +5,15 @@ import InputField from "../components/InputField";
 import ContactField from "../components/ContactField";
 import FileInputField from "../components/FileInputField";
 import {BillHeader} from "../components/BillHeader";
+import NewBillItemForm from "../components/NewBillItemForm";
+import InvoiceSummary from "../components/InvoiceSummary";
+import NewBillItemFormMobile from "../components/NewBillItemFormMobile";
 
 function NewInvoiceForm() {
     return (
         <div className="flex flex-col bg-gray-200 w-screen h-screen p-16">
             {/* invoice parent */}
-            <div className="flex flex-col bg-white max-w-2xl h-full px-8">
+            <div className="flex flex-col bg-white max-w-2xl h-full w-full px-8">
                 {/* First row: Logo and Invoice type */}
                 <div className="flex flex-row space-x-8 py-8 text-gray-500">
                     <FileInputField />
@@ -37,9 +40,12 @@ function NewInvoiceForm() {
                 </div>
                 {/* Fourth row: Billing details */}
                 <BillHeader />
+                <NewBillItemForm />
                 <button className="w-full bg-white transition-all duration-200 border-2 border-transparent hover:border-blue-500 hover:text-blue-500 focus:outline-none rounded-md mt-4 px-4 py-2 text-gray-600">
                     Add new invoice item
                 </button>
+                <InvoiceSummary />
+                <NewBillItemFormMobile />
             </div>
         </div>
     );
