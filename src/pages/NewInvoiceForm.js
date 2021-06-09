@@ -1,6 +1,4 @@
 import React from "react";
-
-import {GrGallery} from "react-icons/gr";
 import {IoPeopleOutline} from "react-icons/io5";
 import {BsPerson} from 'react-icons/bs';
 import InputField from "../components/InputField";

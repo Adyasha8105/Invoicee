@@ -6,7 +6,7 @@ function Footer() {
 			<div class="bg-gray-100 pt-12 px-4 mt-20">
 				<div class="mx-auto container flex flex-col items-center justify-center">
 					<div>
-						<img src={require("../Images/Favicon.svg").default} width="80" height="76" alt="logo" />
+						<img src={require("../../Images/Favicon.svg").default} width="80" height="76" alt="logo" />
 					</div>
 					<div class="text-black flex flex-col items-center md:f-f-l pt-3">
 						<h1 class="text-2xl font-black items-center">Write. Create. Print.</h1>
