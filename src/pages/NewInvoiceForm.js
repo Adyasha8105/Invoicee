@@ -14,8 +14,8 @@ function NewInvoiceForm() {
 		<div className="flex flex-col bg-gray-200 w-screen min-h-screen xl:p-16 md:p-14 p-8">
 			{/* invoice parent */}
 			<div className="flex flex-col bg-white max-w-2xl min-h-full w-full px-8">
-				<div className="sm:w-1/2 w-full h-full self-center flex flex-col border-dashed border border-gray-400 my-4">
-					<input className="mx-2 py-1 text-xl text-black self-center text-center focus:outline-none bg-gray-50 font-semibold" type="text" defaultValue="INVOICE" />
+				<div className="sm:w-1/2 w-full h-full self-center flex flex-col my-4">
+					<input className="px-2 py-1 text-xl text-black self-center text-center focus:outline-none bg-gray-50 font-semibold border-dashed border border-gray-400" type="text" defaultValue="INVOICE" />
 				</div>
 				{/* First row: Logo and Invoice type */}
 
