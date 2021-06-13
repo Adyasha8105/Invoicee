@@ -2,7 +2,7 @@ import React from "react";
 
 const NewBillItemFormMobile = () => {
     return(
-        <div className="w-full bg-gray-100 flex flex-col text-sm rounded-md hidden">
+        <div className="w-full bg-gray-100 flex flex-col text-sm rounded-md">
             <div className="flex flex-row items-center justify-between py-2 px-4">
                 <div className="w-full font-bold">Item</div>
                 <input type="text" className="w-full p-2"/>
