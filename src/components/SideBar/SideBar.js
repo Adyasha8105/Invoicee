@@ -1,19 +1,18 @@
 import React from 'react';
-import InputField from '../components/Invoice/InputField';
 import { AiOutlineEye } from 'react-icons/ai';
 import { FiDownload } from 'react-icons/fi'; 
 
 export default function SideBar() {
   return (
-    <div className="py-4 px-10 w-auto">
+    <div className="py-4 px-10 w-auto md:grid flex">
       <div className="flex flex-col w-full space-y-8">
         <select className="mt-4" value="Blank template" name="template">
-          <option value="Blank template">Blank Template</option>
-          <option value="Blank template">Blank Template</option>
-          <option value="Blank template">Blank Template</option>
-          <option value="Blank template">Blank Template</option>
-          <option value="Blank template">Blank Template</option>
-          <option value="Blank template">Blank Template</option>
+          <option value="Blank template">Blank Template1</option>
+          <option value="Blank template">Blank Template2</option>
+          <option value="Blank template">Blank Template3</option>
+          <option value="Blank template">Blank Template4</option>
+          <option value="Blank template">Blank Template5</option>
+          <option value="Blank template">Blank Template6</option>
         </select>
 
         <h1 className="text-xl">Invoice settings</h1>
