@@ -31,7 +31,7 @@ const FileInputField = () => {
 				</div>
 				<div>
 				{$imagePreview}
-					<label clasName="custom-file-upload btn1">
+					<label className="m-auto">
 						<input type="file" name="avatar" onChange={fileChangedHandler} />
 					</label>
 				</div>

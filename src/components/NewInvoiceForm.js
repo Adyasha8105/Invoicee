@@ -1,8 +1,8 @@
 import React from "react";
-import { IoPeopleOutline } from "react-icons/io5";
-import { BsPerson } from "react-icons/bs";
+
 import InputField from "./Invoice/InputField";
-import ContactField from "./Invoice/ContactField";
+import FromContactField from "./Invoice/ContactDetails/FromContactField";
+import ToContactField from "./Invoice/ContactDetails/ToContactField";
 import FileInputField from "./Invoice/FileInputField";
 import { BillHeader } from "./Invoice/BillHeader";
 import NewBillItemForm from "./Invoice/NewBillItemForm";
@@ -28,19 +28,9 @@ function NewInvoiceForm() {
 					</div>
 					<FileInputField />
 				</div>
-				<div className="flex md:flex-row flex-col md:space-x-24 space-y-8 md:space-y-0 text-gray-500 mb-8">
-					<ContactField
-						label="Sender Name"
-						subLabel="Sender contact details"
-						fromOrTo="FROM"
-						icon={<IoPeopleOutline />}
-					/>
-					<ContactField
-						label="Recipient Name"
-						subLabel="Recipient contact details"
-						fromOrTo="TO"
-						icon={<BsPerson />}
-					/>
+				<div className="flex md:flex-row flex-col space-y-8 md:space-y-0 text-gray-500 mb-8">
+					<FromContactField />
+					<ToContactField />
 				</div>
 				<div className="md:flex justify-between sm:inline-flex">
 					<InputField inputType="text" label="Invoice No:" defaultValue="001" />
