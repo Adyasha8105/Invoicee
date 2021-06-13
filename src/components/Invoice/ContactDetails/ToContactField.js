@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/ContactField.css";
+import "../../../styles/ContactField.css";
 import { BsPerson } from "react-icons/bs";
 import RecipientDetails from "../ContactForms/RecipientDetails"
 

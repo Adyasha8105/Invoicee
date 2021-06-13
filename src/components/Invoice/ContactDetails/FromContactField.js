@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/ContactField.css";
+import "../../../styles/ContactField.css";
 import { IoPeopleOutline } from "react-icons/io5";
 import SenderDetails from "../ContactForms/SenderDetails";
 
