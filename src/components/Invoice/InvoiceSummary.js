@@ -2,7 +2,7 @@ import React from "react";
 
 const InvoiceSummary = () => {
 	return (
-		<div className="md:w-1/2 w-full flex-col mb-4">
+		<div>
 			<div className="w-full bg-gray-200 border-t border-b border-gray-400 font-bold text-sm mt-8 p-2 text-center">
 				Invoice Summary
 			</div>
