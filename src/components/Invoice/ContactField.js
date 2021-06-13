@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/ContactField.css";
+import "../../styles/ContactField.css";
 
 const ContactField = ({ icon, label, subLabel, fromOrTo }) => {
 	return (

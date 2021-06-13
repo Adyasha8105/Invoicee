@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import NewInvoiceForm from "./pages/NewInvoiceForm";
+import Invoice from "./pages/Invoice";
 
 import Home from "./pages/Home";
 
@@ -11,8 +11,8 @@ function App() {
 				<Route exact path="/">
 					<Home />
 				</Route>
-				<Route path="/new">
-					<NewInvoiceForm />
+				<Route path="/invoice">
+					<Invoice />
 				</Route>
 			</Switch>
 		</BrowserRouter>

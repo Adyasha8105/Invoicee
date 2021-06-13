@@ -1,19 +1,19 @@
 import React from "react";
 import { IoPeopleOutline } from "react-icons/io5";
 import { BsPerson } from "react-icons/bs";
-import InputField from "../components/InputField";
-import ContactField from "../components/ContactField";
-import FileInputField from "../components/FileInputField";
-import { BillHeader } from "../components/BillHeader";
-import NewBillItemForm from "../components/NewBillItemForm";
-import InvoiceSummary from "../components/InvoiceSummary";
-import NewBillItemFormMobile from "../components/NewBillItemFormMobile";
+import InputField from "./Invoice/InputField";
+import ContactField from "./Invoice/ContactField";
+import FileInputField from "./Invoice/FileInputField";
+import { BillHeader } from "./Invoice/BillHeader";
+import NewBillItemForm from "./Invoice/NewBillItemForm";
+import InvoiceSummary from "./Invoice/InvoiceSummary";
+import NewBillItemFormMobile from "./Invoice/NewBillItemFormMobile";
 
 function NewInvoiceForm() {
 	return (
 		<div className="flex flex-col bg-gray-200 w-screen min-h-screen xl:p-16 md:p-14 p-8 overflow-x-hidden">
 			{/* invoice parent */}
-			<div className="flex flex-col bg-white max-w-2xl min-h-full w-full px-8">
+			<div className="flex flex-col bg-white min-h-full w-full px-8">
 				<div className="sm:w-1/2 w-full h-full self-center flex flex-col my-4">
 					<input className="px-2 py-1 text-md text-black self-center text-center focus:outline-none bg-gray-50 font-semibold border-dashed border border-gray-400" type="text" defaultValue="INVOICE" />
 				</div>
