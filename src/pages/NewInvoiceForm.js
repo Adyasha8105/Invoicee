@@ -1,20 +1,26 @@
-import React from 'react';
-import {IoPeopleOutline} from 'react-icons/io5';
-import {BsPerson} from 'react-icons/bs';
-import InputField from '../components/InputField';
-import ContactField from '../components/ContactField';
-import FileInputField from '../components/FileInputField';
-import {BillHeader} from '../components/BillHeader';
-import NewBillItemForm from '../components/NewBillItemForm';
-import InvoiceSummary from '../components/InvoiceSummary';
-import NewBillItemFormMobile from '../components/NewBillItemFormMobile';
+import React, { useEffect, useState } from "react";
+import { IoPeopleOutline } from "react-icons/io5";
+import { BsPerson } from "react-icons/bs";
+import InputField from "../components/InputField";
+import ContactField from "../components/ContactField";
+import FileInputField from "../components/FileInputField";
+import { BillHeader } from "../components/BillHeader";
+import NewBillItemForm from "../components/NewBillItemForm";
+import InvoiceSummary from "../components/InvoiceSummary";
+import NewBillItemFormMobile from "../components/NewBillItemFormMobile";
 
 function NewInvoiceForm() {
+  var width = window.innerWidth;
+  const [windowWidth, setWindowWidth] = useState(width);
+  useEffect(() => {
+    setWindowWidth(window.innerWidth);
+  }, [width]);
+
   return (
     <div className="flex flex-col bg-gray-200 w-screen min-h-screen p-16">
       {/* invoice parent */}
       <div className="flex flex-col bg-white max-w-2xl min-h-full w-full px-8">
-	      <div className="md:w-1/2 w-full h-full self-center flex flex-col border-dashed border border-gray-400 my-4">
+        <div className="md:w-1/2 w-full h-full self-center flex flex-col border-dashed border border-gray-400 my-4">
           <div className="text-xs mx-4 mt-2">Name of the invoice</div>
           <input
             className="mx-4 py-1 text-sm text-black focus:outline-none"
@@ -60,7 +66,7 @@ function NewInvoiceForm() {
         </div>
         {/* Third row: Invoice details */}
         {/* Fourth row: Billing details */}
-        {window.innerWidth > 600 ? (
+        {windowWidth > 600 ? (
           <div>
             <BillHeader />
             <NewBillItemForm />
