@@ -11,11 +11,11 @@ import NewBillItemFormMobile from "../components/NewBillItemFormMobile";
 
 function NewInvoiceForm() {
 	return (
-		<div className="flex flex-col bg-gray-200 w-screen min-h-screen xl:p-16 md:p-14 p-8">
+		<div className="flex flex-col bg-gray-200 w-screen min-h-screen xl:p-16 md:p-14 p-8 overflow-x-hidden">
 			{/* invoice parent */}
 			<div className="flex flex-col bg-white max-w-2xl min-h-full w-full px-8">
 				<div className="sm:w-1/2 w-full h-full self-center flex flex-col my-4">
-					<input className="px-2 py-1 text-xl text-black self-center text-center focus:outline-none bg-gray-50 font-semibold border-dashed border border-gray-400" type="text" defaultValue="INVOICE" />
+					<input className="px-2 py-1 text-md text-black self-center text-center focus:outline-none bg-gray-50 font-semibold border-dashed border border-gray-400" type="text" defaultValue="INVOICE" />
 				</div>
 				{/* First row: Logo and Invoice type */}
 
@@ -53,7 +53,7 @@ function NewInvoiceForm() {
 					) : (
 						<NewBillItemFormMobile />
 					)}
-					<button className="w-full bg-white transition-all duration-200 border-2 border-transparent hover:border-primary focus:outline-none rounded-md mt-4 px-4 py-2 text-gray-600">
+					<button className="w-full bg-white transition-all duration-200 border-2 border-transparent border-gray-100 focus:outline-none rounded-md mt-4 px-4 py-2 text-gray-600">
 						Add new invoice item
 					</button>
 				</div>

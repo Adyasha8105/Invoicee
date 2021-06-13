@@ -3,7 +3,7 @@ import "../styles/InputField.css";
 
 export default function InputField({ label, inputType, defaultValue }) {
 	return (
-		<div className="parentInputField flex md:flex-row flex-col items-center space-x-2 md:mb-0 mb-4">
+		<div className="parentInputField flex md:flex-row flex-col items-center space-x-2 md:mb-0 mb-4 my-2">
 			<div className="font-bold text-sm">{label}</div>
 			<input
 				type={inputType}
