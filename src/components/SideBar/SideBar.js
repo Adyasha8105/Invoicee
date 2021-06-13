@@ -4,7 +4,7 @@ import { FiDownload } from 'react-icons/fi';
 
 export default function SideBar() {
   return (
-    <div className="py-4 px-10 w-auto md:grid flex">
+    <div className="py-4 px-10 w-auto md:grid flex ">
       <div className="flex flex-col w-full space-y-8">
         <select className="mt-4" value="Blank template" name="template">
           <option value="Blank template">Blank Template1</option>
@@ -15,10 +15,10 @@ export default function SideBar() {
           <option value="Blank template">Blank Template6</option>
         </select>
 
-        <h1 className="text-xl">Invoice settings</h1>
+        <h1 className="text-xl font-bold">Invoice settings</h1>
 		<div className="flex flex-col justify-start items-between space-y-4">
           <div className="flex flex-col justify-between space-y-2 md:mb-0 mb-4 my-2">
-            <div className="font-bold text-sm">Discount</div>
+            <div className="text-sm">Discount</div>
             <input
               type="Text"
               className="inputFieldParent flex-shrink-1 min-w-min text-sm bg-gray-50 border-dashed border-2 border-opacity-20 border-gray-200 rounded-md hover:border-primary focus:outline-none p-1"
@@ -27,7 +27,7 @@ export default function SideBar() {
           </div>
 
           <div className="flex flex-col justify-between space-y-2 md:mb-0 mb-4 my-2">
-            <div className="font-bold text-sm">Tax</div>
+            <div className="text-sm">Tax</div>
             <input
               type="Text"
               className="inputFieldParent flex-shrink-1 min-w-min text-sm bg-gray-50 border-dashed border-2 border-opacity-20 border-gray-200 rounded-md hover:border-primary focus:outline-none p-1"
@@ -36,7 +36,7 @@ export default function SideBar() {
           </div>
 
           <div className="flex flex-col justify-between space-y-2 md:mb-0 mb-4 my-2">
-            <div className="font-bold text-sm">Value Added Tax (VAT)</div>
+            <div className="text-sm">Value Added Tax (VAT)</div>
             <input
               type="Text"
               className="inputFieldParent flex-shrink-1 min-w-min text-sm bg-gray-50 border-dashed border-2 border-opacity-20 border-gray-200 rounded-md hover:border-primary focus:outline-none p-1"
