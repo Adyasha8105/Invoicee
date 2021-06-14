@@ -27,7 +27,7 @@ function NewInvoiceForm() {
 					</div>
 					<FileInputField />
 				</div>
-				<div className="flex md:flex-row flex-col space-y-8 md:space-y-0 text-gray-500 mb-8">
+				<div className="flex md:flex-row flex-col space-y-0 md:space-y-0 text-gray-500 mb-8">
 					<FromContactField />
 					<ToContactField />
 				</div>
