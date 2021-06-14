@@ -1,7 +1,7 @@
 import React from "react";
 import "../../../styles/ContactField.css";
 import { BsPerson } from "react-icons/bs";
-import RecipientDetails from "../ContactForms/RecipientDetails"
+import FormModal from "../ContactForms/FormModal";
 
 const ContactField = () => {
 	const [showModal, setShowModal] = React.useState(false);
@@ -33,20 +33,20 @@ const ContactField = () => {
 							{/*content*/}
 							<div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
 								{/*header*/}
-								<div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
-									<h3 className="text-xl font-semibold">Sender Details</h3>
+								<div className="py-2 px-4 flex flex-row items-center justify-between border-b border-solid border-blueGray-200 rounded-t">
+									<h3 className="text-xl font-semibold">Recipient's Details</h3>
 									<button
-										className="p-1 ml-auto border-0 text-black opacity-2 float-right text-3xl leading-none font-bold outline-none focus:outline-none"
+										className="border-0 text-black opacity-2 text-3xl leading-none font-bold focus:outline-none"
 										onClick={() => setShowModal(false)}
 									>
-										<div className="text-black h-6 w-6 text-2xl block outline-none focus:outline-none">
+										<div className="text-black text-2xl block outline-none focus:outline-none">
 											×
 										</div>
 									</button>
 								</div>
 								<div className="relative p-6 flex-auto">
 									<p className="my-4 text-blueGray-500 text-lg leading-relaxed">
-										<RecipientDetails />
+										<FormModal />
 									</p>
 								</div>
 								<div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
