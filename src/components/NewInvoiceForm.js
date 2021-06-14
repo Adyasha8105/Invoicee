@@ -16,7 +16,7 @@ function NewInvoiceForm() {
 		<div className="flex flex-col bg-gray-200 w-screen min-h-screen xl:p-16 md:p-14 p-8 overflow-x-hidden">
 			<div className="flex flex-col bg-white min-h-full self-center max-w-4xl w-full px-8 py-4">
 
-				<div className="flex sm:flex-row flex-col md:space-x-24 md:space-y-0 space-y-8 py-8 text-gray-500">
+				<div className="flex md:flex-row flex-col md:space-x-8 space-y-8 md:space-y-0 text-gray-500 mb-8">
 					<div className="flex flex-col w-full">
 						<div className="w-full h-full flex my-4">
 							<input

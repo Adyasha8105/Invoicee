@@ -9,7 +9,7 @@ const NewBillItemForm = () => {
 				<input type="text" className="mx-1 py-2 col-span-1 border border-gray-300" />
 				<input type="text" className="mx-1 py-2 col-span-1 border border-gray-300" />
 				<input type="text" className="mx-1 py-2 col-span-1 border border-gray-300" />
-				<div className="flex flex-row justify-end items-center space-x-2 col-span-2">
+				<div className="flex flex-row justify-end items-center lg:space-x-12 md:space-x-8 space-x-4 col-span-2">
 					<div className="text-sm">$23.00</div>
 					<div className="space-x-4">
 						<button>
