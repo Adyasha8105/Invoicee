@@ -1,7 +1,6 @@
 import React from "react";
 import "../../../styles/ContactField.css";
 import { IoPeopleOutline } from "react-icons/io5";
-import SenderDetails from "../ContactForms/FormModal";
 import FormModal from "../ContactForms/FormModal";
 
 const ContactField = () => {

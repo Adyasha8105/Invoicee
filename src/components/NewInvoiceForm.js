@@ -10,7 +10,6 @@ import InvoiceSummary from "./Invoice/InvoiceSummary";
 import NewBillItemFormMobile from "./Invoice/NewBillItemFormMobile";
 
 function NewInvoiceForm() {
-	const [width, setWidth] = React.useState(window.innerWidth);
 
 	return (
 		<div className="flex flex-col bg-gray-200 w-screen min-h-screen xl:p-16 md:p-14 p-8 overflow-x-hidden">
@@ -38,7 +37,7 @@ function NewInvoiceForm() {
 					<InputField inputType="date" label="Invoice Due Date:" defaultValue="" />
 				</div>
 				<div>
-					{`${width}` > 600 ? (
+					{window.innerWidth > 600 ? (
 						<>
 							<BillHeader />
 							<NewBillItemForm />
