@@ -16,11 +16,11 @@ function NewInvoiceForm() {
 		<div className="flex flex-col bg-gray-200 w-screen min-h-screen xl:p-16 md:p-14 p-8 overflow-x-hidden">
 			<div className="flex flex-col bg-white min-h-full self-center max-w-4xl w-full px-8 py-4">
 
-				<div className="flex md:flex-row flex-col md:space-x-8 space-y-8 md:space-y-0 text-gray-500 mb-8">
+				<div className="flex lg:flex-row flex-col lg:space-x-8 space-y-8 lg:space-y-0 text-gray-500 mb-8">
 					<div className="flex flex-col w-full">
 						<div className="w-full h-full flex my-4">
 							<input
-								className="px-2 py-1 md:text-xl text-sm text-black self-center text-center focus:outline-none bg-gray-50 font-semibold border-dashed border-2 border-gray-200"
+								className="px-2 py-1 sm:text-xl text-sm text-black self-center text-center focus:outline-none bg-gray-50 font-semibold border-dashed border-2 border-gray-200"
 								type="text"
 								defaultValue="INVOICE"
 							/>
