@@ -1,10 +1,22 @@
 import React from "react";
 import "../../../styles/ContactField.css";
 import { IoPeopleOutline } from "react-icons/io5";
-import FormModal from "../ContactForms/FormModal";
+import { useForm } from "react-hook-form";
+import { TextField } from "../ContactForms/Input";
 
 const ContactField = () => {
 	const [showModal, setShowModal] = React.useState(false);
+
+	const {
+		handleSubmit,
+		formState: { errors },
+		register,
+	} = useForm();
+
+	const onSubmit = (data) => {
+		setShowModal(false)
+		console.log(data);
+	};
 
 	return (
 		<>
@@ -45,15 +57,80 @@ const ContactField = () => {
 									</button>
 								</div>
 								<div className="relative p-6 flex-auto">
-									<p className="my-4 text-blueGray-500 text-lg leading-relaxed">
-										<FormModal />
-									</p>
+									<div className="my-4 text-blueGray-500 text-lg leading-relaxed">
+
+										<form className="flex flex-col space-y-8">
+											<div className="w-full flex md:flex-row flex-col justify-between md:space-x-8 md:space-y-0 space-y-4">
+												<TextField
+													label="Name of the Company"
+													register={register}
+													name="Name of the Company"
+													errors={errors}
+													rules={{ maxLength: 20, required: false, min: 3 }}
+												/>
+												<TextField
+													label="Name"
+													register={register}
+													name="Name"
+													errors={errors}
+													rules={{ maxLength: 20, required: true, min: 3 }}
+												/>
+											</div>
+											<div className="w-full flex md:flex-row flex-col justify-between md:space-x-8 md:space-y-0 space-y-4">
+												<TextField
+													label="Tax regd. No. (GST)"
+													register={register}
+													name="Tax regd. No. (GST)"
+													errors={errors}
+													rules={{ maxLength: 20, required: false, min: 3 }}
+												/>
+												<TextField
+													label="Email"
+													register={register}
+													name="Email"
+													errors={errors}
+													rules={{
+														required: true,
+														pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
+													}}
+												/>
+											</div>
+
+											<hr className="solid" />
+											<div>
+												<TextField
+													label="Address"
+													register={register}
+													name="Address"
+													errors={errors}
+													rules={{ required: false, maxLength: 40, min: 10 }}
+												/>
+											</div>
+
+											<div className="w-full flex md:flex-row flex-col justify-between md:space-x-8 md:space-y-0 space-y-4">
+												<TextField
+													label="Phone"
+													register={register}
+													name="Phone"
+													errors={errors}
+													rules={{ required: true, maxLength: 20 }}
+												/>
+												<TextField
+													label="Country"
+													register={register}
+													name="Country"
+													errors={errors}
+													rules={{ required: true, maxLength: 20 }}
+												/>
+											</div>
+										</form>
+									</div>
 								</div>
 								<div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
 									<button
 										className="bg-primary text-black active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-										type="button"
-										onClick={() => setShowModal(false)}
+										type="submit"		
+										onClick={handleSubmit(onSubmit)}												
 									>
 										Save Changes
 									</button>
