@@ -12,12 +12,11 @@ const FromContactField = () => {
 		handleSubmit,
 		formState: { errors },
 		register,
-	} = useForm();
+	} = useForm({});
 
 	const onSubmit = (data) => {
 		setShowModal(false);
 		setSenderDetails(data);
-		console.log(data);
 	};
 
 	return (
@@ -40,6 +39,9 @@ const FromContactField = () => {
 						</div>
 					) : (
 						<>
+							{(senderDetails.name_of_the_company === '')
+							? (<div>hey</div>) : (null)}
+							
 							<div>{senderDetails.name_of_the_company}</div>
 							<div>{senderDetails.name}</div>
 							<div>{senderDetails.email}</div>
@@ -71,7 +73,6 @@ const FromContactField = () => {
 								</div>
 								<div className="relative p-6 flex-auto">
 									<div className="my-4 text-blueGray-500 text-lg leading-relaxed">
-										
 										<form className="flex flex-col space-y-4" onSubmit={handleSubmit(onSubmit)}>
 											<div className="w-full flex md:flex-row flex-col justify-between md:space-x-8 md:space-y-0 space-y-4">
 												<TextField
