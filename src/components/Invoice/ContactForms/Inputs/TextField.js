@@ -6,10 +6,10 @@ const TextField = ({ label, register, rules, errors, name }) => {
         <div>
             <div className="text-gray-500 text-sm text-left mb-1">{label}</div>
             <input className="w-full border-black p-1 border rounded" {...register(name, { ...rules })} />
-            {errors[label] && errors[label].type === 'required' && <p className="mb-3 text-red-500 text-left">{name} is required</p>}
-            {errors[label] &&errors[label].type === 'maxLength' && <p className="mb-3 text-red-500 text-left">{name} should be have maximum of {rules.maxLength} characters</p>}
-            {errors[label] && errors[label].type === 'min' && <p className="mb-3 text-red-500 text-left">{name} should be contain atleast {rules.min} characters</p>}
-            {errors[label] && errors[label].type === 'pattern' && <p className="mb-3 text-red-500 text-left">{name} is invalid</p>}
+            {errors[name] && errors[name].type === 'required' && <p className="mb-1 text-sm text-red-500 text-left">{label} is required</p>}
+            {errors[name] && errors[name].type === 'maxLength' && <p className="mb-1 text-sm text-red-500 text-left">{label} should be have maximum of {rules.maxLength} characters</p>}
+            {errors[name] && errors[name].type === 'min' && <p className="mb-1 text-sm text-red-500 text-left">{label} should be contain atleast {rules.min} characters</p>}
+            {errors[name] && errors[name].type === 'pattern' && <p className="mb-1 text-sm text-red-500 text-left">{label} is invalid</p>}
         </div>
     );
 };

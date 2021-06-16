@@ -39,10 +39,7 @@ const FromContactField = () => {
 						</div>
 					) : (
 						<>
-							{(senderDetails.name_of_the_company === '')
-							? (<div>hey</div>) : (null)}
-							
-							<div>{senderDetails.name_of_the_company}</div>
+							<div>{senderDetails.desgination}</div>
 							<div>{senderDetails.name}</div>
 							<div>{senderDetails.email}</div>
 							<div>{senderDetails.tax_regd_no}</div>
@@ -76,15 +73,15 @@ const FromContactField = () => {
 										<form className="flex flex-col space-y-4" onSubmit={handleSubmit(onSubmit)}>
 											<div className="w-full flex md:flex-row flex-col justify-between md:space-x-8 md:space-y-0 space-y-4">
 												<TextField
-													label="Name of the Company"
-													name="name_of_the_company"
-													register={register}
-													errors={errors}
-													rules={{ maxLength: 20, required: false, min: 3 }}
-												/>
-												<TextField
 													label="Name"
 													name="name"
+													register={register}
+													errors={errors}
+													rules={{ maxLength: 20, required: true, min: 3 }}
+												/>
+												<TextField
+													label="Designation"
+													name="desgination"
 													register={register}
 													errors={errors}
 													rules={{ maxLength: 20, required: true, min: 3 }}

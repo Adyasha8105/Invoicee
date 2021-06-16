@@ -39,7 +39,7 @@ const ToContactField = () => {
 						</div>
 					) : (
 						<>
-							<div>{recipientDetails.name_of_the_company}</div>
+							<div>{recipientDetails.designation}</div>
 							<div>{recipientDetails.name}</div>
 							<div>{recipientDetails.email}</div>
 							<div>{recipientDetails.tax_regd_no}</div>
@@ -70,20 +70,19 @@ const ToContactField = () => {
 								</div>
 								<div className="relative p-6 flex-auto">
 									<div className="my-4 text-blueGray-500 text-lg leading-relaxed">
-										
 										<form className="flex flex-col space-y-4" onSubmit={handleSubmit(onSubmit)}>
 											<div className="w-full flex md:flex-row flex-col justify-between md:space-x-8 md:space-y-0 space-y-4">
-												<TextField
-													label="Name of the Company"
+											<TextField
+													label="Name"
+													name="name"
 													register={register}
-													name="name_of_the_company"
 													errors={errors}
-													rules={{ maxLength: 20, required: false, min: 3 }}
+													rules={{ maxLength: 20, required: true, min: 3 }}
 												/>
 												<TextField
-													label="Name"
+													label="Designation"
+													name="designation"
 													register={register}
-													name="name"
 													errors={errors}
 													rules={{ maxLength: 20, required: true, min: 3 }}
 												/>
