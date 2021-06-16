@@ -1,6 +1,6 @@
 import React from "react";
-
-import InputField from "./Invoice/InputField";
+import InvoiceHeading from "./Invoice/InvoiceHeading";
+import InvoiceDetails from "./Invoice/InvoiceDetails";
 import FromContactField from "./Invoice/ContactDetails/FromContactField";
 import ToContactField from "./Invoice/ContactDetails/ToContactField";
 import FileInputField from "./Invoice/FileInputField";
@@ -10,19 +10,13 @@ import InvoiceSummary from "./Invoice/InvoiceSummary";
 import NewBillItemFormMobile from "./Invoice/NewBillItemFormMobile";
 
 function NewInvoiceForm() {
-
 	return (
 		<div className="flex flex-col bg-gray-200 w-screen min-h-screen xl:p-16 md:p-14 p-8 overflow-x-hidden">
 			<div className="flex flex-col bg-white min-h-full self-center max-w-4xl w-full px-8 py-4">
-
 				<div className="flex lg:flex-row flex-col lg:space-x-8 space-y-8 lg:space-y-0 text-gray-500 mb-8">
 					<div className="flex flex-col w-full">
 						<div className="w-full h-full flex my-4">
-							<input
-								className="px-2 py-1 sm:text-xl text-sm text-black self-center text-center focus:outline-none bg-gray-50 font-semibold border-dashed border-2 border-gray-200"
-								type="text"
-								defaultValue="INVOICE"
-							/>
+							<InvoiceHeading />
 						</div>
 					</div>
 					<FileInputField />
@@ -32,9 +26,7 @@ function NewInvoiceForm() {
 					<ToContactField />
 				</div>
 				<div className="md:flex justify-between sm:inline-flex">
-					<InputField inputType="text" label="Invoice No:" defaultValue="001" />
-					<InputField inputType="date" label="Invoice Date:" defaultValue="" />
-					<InputField inputType="date" label="Invoice Due Date:" defaultValue="" />
+					<InvoiceDetails />
 				</div>
 				<div>
 					{window.innerWidth > 600 ? (
