@@ -14,7 +14,8 @@
     "react-icons": "^4.2.0",
     "react-redux": "^7.2.3",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3"
+    "react-scripts": "4.0.3",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "craco start",

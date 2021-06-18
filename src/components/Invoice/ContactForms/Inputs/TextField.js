@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TextField = ({ label, register, rules, errors, name }) => {
+const TextField = ({ label, register, rules, errors, name}) => {
 
     return (
         <div>
