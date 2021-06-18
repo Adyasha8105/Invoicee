@@ -1,8 +1,8 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "../../../styles/ContactField.css";
-import {BsPerson} from "react-icons/bs";
-import {useForm} from "react-hook-form";
-import {TextField} from "../ContactForms/Input";
+import { BsPerson } from "react-icons/bs";
+import { useForm } from "react-hook-form";
+import { TextField } from "../ContactForms/Input";
 
 const ToContactField = () => {
     const [showModal, setShowModal] = useState(false);
@@ -10,7 +10,7 @@ const ToContactField = () => {
 
     const {
         handleSubmit,
-        formState: {errors},
+        formState: { errors },
         register,
     } = useForm();
 
@@ -30,7 +30,7 @@ const ToContactField = () => {
                     {!recipientDetails ? (
                         <div className="w-full flex flex-row items-center justify-between space-x-4 mb-2">
                             <div className="text-3xl text-black">
-                                <BsPerson/>
+                                <BsPerson />
                             </div>
                             <div className="flex flex-col">
                                 <div className="text-black">Recipient Name</div>
@@ -40,29 +40,42 @@ const ToContactField = () => {
                             </div>
                         </div>
                     ) : (
-                        <>
-                            <div>{recipientDetails.designation}</div>
-                            <div>{recipientDetails.name}</div>
-                            <div>{recipientDetails.email}</div>
-                            <div>{recipientDetails.tax_regd_no}</div>
-                            <div>{recipientDetails.address}</div>
-                            <div>{recipientDetails.phone}</div>
-                            <div>{recipientDetails.country}</div>
-                            <div>{recipientDetails.others}</div>
-                        </>
+                        <div className="text-black">
+                            <div className="font-bold text-lg">
+                                {recipientDetails.designation}
+                            </div>
+                            <div className="font-semibold">
+                                {recipientDetails.name}
+                            </div>
+                            <div className="font-semibold">
+                                {recipientDetails.email}
+                            </div>
+                            <div className="text-sm">
+                                {recipientDetails.address}
+                            </div>
+                            <div className="text-sm">
+                                {recipientDetails.phone}
+                            </div>
+                            <div className="text-sm">
+                                {recipientDetails.country}
+                            </div>
+                            <div className="text-sm">
+                                {recipientDetails.tax_regd_no}
+                            </div>
+                            <div className="text-sm">
+                                {recipientDetails.others}
+                            </div>
+                        </div>
                     )}
                 </div>
             </div>
 
             {showModal ? (
                 <>
-                    <div
-                        className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+                    <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
                         <div className="relative w-auto my-6 mx-auto max-w-3xl">
-                            <div
-                                className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-                                <div
-                                    className="py-2 px-4 flex flex-row items-center justify-between border-b border-solid border-blueGray-200 rounded-t">
+                            <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                                <div className="py-2 px-4 flex flex-row items-center justify-between border-b border-solid border-blueGray-200 rounded-t">
                                     <h3 className="text-xl font-semibold">
                                         Recipient's Details
                                     </h3>
@@ -81,8 +94,7 @@ const ToContactField = () => {
                                             className="flex flex-col space-y-4"
                                             onSubmit={handleSubmit(onSubmit)}
                                         >
-                                            <div
-                                                className="w-full flex md:flex-row flex-col justify-between md:space-x-8 md:space-y-0 space-y-4">
+                                            <div className="w-full flex md:flex-row flex-col justify-between md:space-x-8 md:space-y-0 space-y-4">
                                                 <TextField
                                                     label="Name"
                                                     name="name"
@@ -106,8 +118,7 @@ const ToContactField = () => {
                                                     }}
                                                 />
                                             </div>
-                                            <div
-                                                className="w-full flex md:flex-row flex-col justify-between md:space-x-8 md:space-y-0 space-y-4">
+                                            <div className="w-full flex md:flex-row flex-col justify-between md:space-x-8 md:space-y-0 space-y-4">
                                                 <TextField
                                                     label="Email"
                                                     register={register}
@@ -131,7 +142,7 @@ const ToContactField = () => {
                                                 />
                                             </div>
 
-                                            <hr className="solid"/>
+                                            <hr className="solid" />
                                             <div>
                                                 <TextField
                                                     label="Address"
@@ -146,8 +157,7 @@ const ToContactField = () => {
                                                 />
                                             </div>
 
-                                            <div
-                                                className="w-full flex md:flex-row flex-col justify-between md:space-x-8 md:space-y-0 space-y-4">
+                                            <div className="w-full flex md:flex-row flex-col justify-between md:space-x-8 md:space-y-0 space-y-4">
                                                 <TextField
                                                     label="Phone"
                                                     register={register}
@@ -183,8 +193,7 @@ const ToContactField = () => {
                                                     }}
                                                 />
                                             </div>
-                                            <div
-                                                className="flex items-center justify-end pt-4 border-t border-solid border-blueGray-200 rounded-b">
+                                            <div className="flex items-center justify-end pt-4 border-t border-solid border-blueGray-200 rounded-b">
                                                 <button
                                                     className="bg-primary text-black active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                                                     type="submit"
