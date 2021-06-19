@@ -22,7 +22,7 @@ function NewInvoiceForm() {
         quantity: "",
         rate: "",
         tax: "",
-        subtotal: "$0.00",
+        subtotal: "0.00",
         description: "",
     });
 
@@ -52,6 +52,7 @@ function NewInvoiceForm() {
                 quantity: "",
                 rate: "",
                 tax: "",
+                subtotal: "0.00",
                 description: "",
             });
             setIsEditable(false);
