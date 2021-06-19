@@ -21,7 +21,14 @@ const SingleBillItem = ({ billState, index, isEditable, setIsEditable }) => {
     };
 
     const saveUpdatedItem = () => {
-        dispatch(updateItem(localBillState, index));
+        var quantity = Number(localBillState.quantity);
+        var rate = Number(localBillState.rate);
+        var tax = Number(localBillState.tax);
+        var amount = quantity * rate;
+
+        var total = amount + amount * (tax / 100);
+
+        dispatch(updateItem({ ...localBillState, "subtotal": total.toString() }, index));
     };
 
     const handleDelete = () => {

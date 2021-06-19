@@ -26,6 +26,7 @@ const NewBillItemFormMobile = ({
                 <div className="w-full font-bold">HRS/QTY</div>
                 <input
                     type="number"
+                    min="0"
                     name="quantity"
                     className="w-full p-2"
                     value={billState.quantity}
@@ -58,7 +59,7 @@ const NewBillItemFormMobile = ({
             </div>
             <div className="flex flex-row items-center justify-between py-2 px-4">
                 <div className="w-full font-bold">Subtotal</div>
-                <div className="w-full font-bold">$23.00</div>
+                <div className="w-full font-bold">$ 0.00</div>
             </div>
         </div>
     );

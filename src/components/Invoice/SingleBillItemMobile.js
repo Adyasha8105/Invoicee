@@ -22,11 +22,17 @@ const SingleBillItemMobile = ({
         console.log(e.target.value);
         const value = e.target.value;
         setLocalBillState({ ...localBillState, [e.target.name]: value });
-        // const value = e.target.value;
-        // setBillState({ ...billState, [e.target.name]: value });
     };
 
     const saveUpdatedItem = () => {
+        var quantity = Number(localBillState.quantity);
+        var rate = Number(localBillState.rate);
+        var tax = Number(localBillState.tax);
+        var amount = quantity * rate;
+
+        var total = amount + amount * (tax / 100);
+
+        dispatch(updateItem({ ...localBillState, "subtotal": total.toString() }, index));
         dispatch(updateItem(localBillState, index));
     };
 
@@ -129,7 +135,7 @@ const SingleBillItemMobile = ({
             </div>
             <div className="flex flex-row items-center justify-between py-2 px-4">
                 <div className="w-full font-bold">Subtotal</div>
-                <div className="w-full font-bold">$23.00</div>
+                <div className="w-full font-bold">$ {localBillState.subtotal}</div>
             </div>
         </div>
     );
