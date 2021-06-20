@@ -5,13 +5,13 @@ import FromContactField from "./Invoice/ContactDetails/FromContactField";
 import ToContactField from "./Invoice/ContactDetails/ToContactField";
 import FileInputField from "./Invoice/FileInputField";
 import { BillHeader } from "./Invoice/BillHeader";
-import NewBillItemForm from "./Invoice/NewBillItemForm";
+import NewBillItemForm from "./Invoice/BillItem/NewBillItemForm";
 import InvoiceSummary from "./Invoice/InvoiceSummary";
-import NewBillItemFormMobile from "./Invoice/NewBillItemFormMobile";
+import NewBillItemFormMobile from "./Invoice/BillItemMobile/NewBillItemFormMobile";
 import { addItem } from "../actions";
 import { useSelector, useDispatch } from "react-redux";
-import SingleBillItem from "./Invoice/SingleBillItem";
-import SingleBillItemMobile from "./Invoice/SingleBillItemMobile";
+import SingleBillItem from "./Invoice/BillItem/SingleBillItem";
+import SingleBillItemMobile from "./Invoice/BillItemMobile/SingleBillItemMobile";
 
 function NewInvoiceForm() {
     const billItems = useSelector((state) => state.billReducer.billItems);

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BiPencil, BiSave, BiTrash } from "react-icons/all";
 import { useDispatch } from "react-redux";
-import { deleteItem, updateItem } from "../../actions";
+import { deleteItem, updateItem } from "../../../actions";
 
 const SingleBillItem = ({ billState, index, isEditable, setIsEditable }) => {
     const dispatch = useDispatch();

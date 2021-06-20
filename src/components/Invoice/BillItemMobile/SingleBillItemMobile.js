@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { deleteItem, updateItem } from "../../actions";
+import { deleteItem, updateItem } from "../../../actions";
 
 const SingleBillItemMobile = ({
     billState,

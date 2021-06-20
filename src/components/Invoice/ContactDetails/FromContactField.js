@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../../../styles/ContactField.css";
 import { IoPeopleOutline } from "react-icons/io5";
 import { useForm } from "react-hook-form";
-import { SelectInput, TextField } from "../ContactForms/Input";
+import { TextField } from "../ContactForms/Input";
 
 const FromContactField = () => {
     const [showModal, setShowModal] = useState(false);
