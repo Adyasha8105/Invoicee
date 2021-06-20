@@ -29,6 +29,7 @@ const SingleBillItem = ({ billState, index, isEditable, setIsEditable }) => {
         var total = amount + amount * (tax / 100);
 
         dispatch(updateItem({ ...localBillState, "subtotal": total.toString() }, index));
+        dispatch(updateItem(localBillState, index));
     };
 
     const handleDelete = () => {
