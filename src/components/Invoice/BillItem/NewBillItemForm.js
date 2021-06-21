@@ -1,7 +1,9 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { BiPencil, BiTrash } from "react-icons/all";
 
 const NewBillItemForm = ({ billState, setBillState, setDisplayBillForm }) => {
+    const currencySymbol = useSelector((state) => state.currencySymbol.currency);
     const updateBillItem = (e) => {
         const value = e.target.value;
         setBillState({ ...billState, [e.target.name]: value });
@@ -44,7 +46,7 @@ const NewBillItemForm = ({ billState, setBillState, setDisplayBillForm }) => {
                     className="mx-1 px-1 py-2 col-span-1 border border-gray-300"
                 />
                 <div className="flex flex-row justify-end items-center lg:space-x-12 md:space-x-8 space-x-4 col-span-2">
-                    <div className="text-sm">$ {billState.subtotal}</div>
+                    <div className="text-sm">{currencySymbol} {billState.subtotal}</div>
                     <div className="space-x-4">
                         <button>
                             <BiPencil />

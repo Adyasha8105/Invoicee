@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { BiPencil, BiSave, BiTrash } from "react-icons/all";
 import { deleteItem, updateItem } from "../../../actions";
 
 const SingleBillItemMobile = ({ billState, index, isEditable, setIsEditable }) => {
+	const currencySymbol = useSelector((state) => state.currencySymbol.currency);
 	const dispatch = useDispatch();
 	const [localBillState, setLocalBillState] = useState({
 		itemName: billState.itemName,
@@ -144,7 +145,7 @@ const SingleBillItemMobile = ({ billState, index, isEditable, setIsEditable }) =
 			</div>
 			<div className="flex flex-row items-center justify-between py-2 px-4">
 				<div className="w-full font-bold">Subtotal</div>
-				<div className="w-full font-bold contents">${billState.subtotal}</div>
+				<div className="w-full font-bold contents">{currencySymbol}&nbsp;{billState.subtotal}</div>
 			</div>
 		</div>
 	);

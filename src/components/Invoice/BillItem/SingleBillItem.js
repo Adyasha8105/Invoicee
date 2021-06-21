@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { BiPencil, BiSave, BiTrash } from "react-icons/all";
 import { useDispatch } from "react-redux";
 import { deleteItem, updateItem } from "../../../actions";
 
 const SingleBillItem = ({ billState, index, isEditable, setIsEditable }) => {
+    const currencySymbol = useSelector((state) => state.currencySymbol.currency);
     const dispatch = useDispatch();
     const [localBillState, setLocalBillState] = useState({
         itemName: billState.itemName,
@@ -91,7 +93,7 @@ const SingleBillItem = ({ billState, index, isEditable, setIsEditable }) => {
                     </>
                 )}
                 <div className="flex flex-row justify-end items-center lg:space-x-12 md:space-x-8 space-x-4 col-span-2">
-                    <div className="text-sm">$ {billState.subtotal}</div>
+                    <div className="text-sm">{currencySymbol} {billState.subtotal}</div>
                     <div className="space-x-4">
                         <button onClick={(e) => setIsEditable(!isEditable)}>
                             {isEditable ? (

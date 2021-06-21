@@ -1,7 +1,9 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { BiPencil, BiTrash } from "react-icons/all";
 
 const NewBillItemFormMobile = ({ billState, setBillState, setDisplayBillForm }) => {
+	const currencySymbol = useSelector((state) => state.currencySymbol.currency);
 	const updateBillItem = (e) => {
 		const value = e.target.value;
 		setBillState({ ...billState, [e.target.name]: value });
@@ -77,7 +79,7 @@ const NewBillItemFormMobile = ({ billState, setBillState, setDisplayBillForm }) 
 			</div>
 			<div className="flex flex-row items-center justify-between py-2 px-4">
 				<div className="w-full font-bold">Subtotal</div>
-				<div className="w-full font-bold">$ {billState.subtotal}</div>
+				<div className="w-full font-bold">{currencySymbol}&nbsp;{billState.subtotal}</div>
 			</div>
 		</div>
 	);

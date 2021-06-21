@@ -1,4 +1,4 @@
-import { ADD, DELETE, UPDATE } from "../constants/actionTypes";
+import { ADD, DELETE, UPDATE, UPDATE_CURRENCY  } from "../constants/actionTypes";
 
 export const addItem = (item) => (dispatch) => {
     dispatch({
@@ -18,5 +18,12 @@ export const updateItem = (item, index) => (dispatch) => {
     dispatch({
         type: UPDATE,
         payload: { item: item, index: index },
+    });
+};
+
+export const updateCurrency = (currency) => (dispatch) => {
+    dispatch({
+        type: UPDATE_CURRENCY ,
+        payload: { currency: currency },
     });
 };
