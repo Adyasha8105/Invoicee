@@ -55,13 +55,13 @@ const NewBillItemForm = ({ billState, setBillState, setDisplayBillForm }) => {
                     </div>
                 </div>
             </div>
-            <div className="w-full grid grid-cols-8">
+            <div className="w-full grid grid-cols-12">
                 <textarea
                     value={billState.description}
                     name="description"
                     onChange={(e) => updateBillItem(e)}
                     placeholder="description"
-                    className="mx-1 py-1 px-1 my-2 col-span-6 border border-gray-300 text-sm"
+                    className="mx-1 py-1 px-1 my-2 col-span-5 border border-gray-300 text-sm"
                 />
             </div>
         </div>

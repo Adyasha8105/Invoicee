@@ -29,7 +29,6 @@ const SingleBillItem = ({ billState, index, isEditable, setIsEditable }) => {
         var total = amount + amount * (tax / 100);
 
         dispatch(updateItem({ ...localBillState, "subtotal": total.toString() }, index));
-        dispatch(updateItem(localBillState, index));
     };
 
     const handleDelete = () => {
@@ -109,7 +108,7 @@ const SingleBillItem = ({ billState, index, isEditable, setIsEditable }) => {
                     </div>
                 </div>
             </div>
-            <div className="w-full grid grid-cols-8">
+            <div className="w-full grid grid-cols-12">
                 {billState.description.trim() !== "" ? (
                     <>
                         {!isEditable ? (
