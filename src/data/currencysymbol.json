@@ -1,7 +1,7 @@
 [
 	{
-		"value": " ",
-		"label": "Select a currency"
+		"value": "Rs",
+		"label": "INR"
 	},
 	{
 		"value": "$",
@@ -194,10 +194,6 @@
 	{
 		"value": "₪",
 		"label": "ILS"
-	},
-	{
-		"value": "Rs",
-		"label": "INR"
 	},
 	{
 		"value": "IQD",

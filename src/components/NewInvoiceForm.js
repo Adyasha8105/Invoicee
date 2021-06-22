@@ -15,7 +15,7 @@ import SingleBillItemMobile from "./Invoice/BillItemMobile/SingleBillItemMobile"
 
 function NewInvoiceForm() {
     const billItems = useSelector((state) => state.billReducer.billItems);
-    const [displayBillForm, setDisplayBillForm] = useState(false);
+    const [displayBillForm, setDisplayBillForm] = useState(true);
     const [isEditable, setIsEditable] = useState(false);
     const [billState, setBillState] = useState({
         itemName: "",

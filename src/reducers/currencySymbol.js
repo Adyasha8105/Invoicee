@@ -8,7 +8,8 @@ const currencySymbol = (state = currencystate, action) => {
   switch (action.type) {
       case UPDATE_CURRENCY :
           return {
-              ...action.payload
+              ...state, 
+              currency: action.payload,
           };
       default:
           return state;

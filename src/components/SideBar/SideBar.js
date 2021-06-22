@@ -3,9 +3,11 @@ import { AiOutlineEye } from "react-icons/ai";
 import { FiDownload } from "react-icons/fi";
 import options from "../../data/currencysymbol.json"
 import { useDispatch } from "react-redux";
-import { updateCurrency } from "../../actions";
+import { updateCurrency, addDiscount, addVAT } from "../../actions";
 
 export default function SideBar() {
+    const [discount, setDiscount] = useState(0); 
+    const [vat, setVat] = useState(0); 
   const dispatch = useDispatch();
 	const [currency, setCurrency] = useState({
 		value: "",
@@ -17,44 +19,57 @@ export default function SideBar() {
     dispatch(updateCurrency(value))
 	};
 
+    const updateDiscountChange = (e) => {
+        const value = e.target.value; 
+        setDiscount(value); 
+        dispatch(addDiscount(value));
+    }
+
+    const updateVAT = (e) => {
+        const value = e.target.value;
+        setVat(value); 
+        dispatch(addVAT(value));
+    }
+
 	return (
 		<div className="py-4 px-10 w-auto md:grid flex ">
 			<div className="flex flex-col w-full space-y-8">
-				<select className="mt-4" value="Blank template" name="template">
-					<option value="Blank template">Blank Template1</option>
-					<option value="Blank template">Blank Template2</option>
-					<option value="Blank template">Blank Template3</option>
-					<option value="Blank template">Blank Template4</option>
-					<option value="Blank template">Blank Template5</option>
-					<option value="Blank template">Blank Template6</option>
-				</select>
 
-				<h1 className="text-xl font-bold">Invoice settings</h1>
-				<div className="flex flex-col justify-start items-between space-y-4">
+				<h1 className="text-xl font-bold mt-12">Invoice settings</h1>
+				<div className="flex flex-col justify-start items-between space-y-8">
 					<div className="flex flex-col justify-between space-y-2 md:mb-0 mb-4 my-2">
-						<div className="text-sm">Discount</div>
+						<div className="text-sm">Discount (in %)</div>
 						<input
-							type="Text"
+							type="number"
+                            min="0"
+                            step="0.01"
+                            value={discount}
+                            onChange={updateDiscountChange}
 							className="inputFieldParent flex-shrink-1 min-w-min text-sm bg-gray-50 border-dashed border-2 border-opacity-20 border-gray-200 rounded-md hover:border-primary focus:outline-none p-1"
-							defaultValue="0"
 						/>
 					</div>
 
-					<div className="flex flex-col justify-between space-y-2 md:mb-0 mb-4 my-2">
+					<div className="flex flex-col justify-between space-y-2 md:mb-0 mt-8 mb-4 my-2">
 						<div className="text-sm">Value Added Tax (VAT)</div>
 						<input
-							type="Text"
+							type="number"
+                            min="0"
+                            step="0.01"
+                            value={vat}
+                            onChange={updateVAT}
 							className="inputFieldParent flex-shrink-1 min-w-min text-sm bg-gray-50 border-dashed border-2 border-opacity-20 border-gray-200 rounded-md hover:border-primary focus:outline-none p-1"
-							defaultValue="0"
 						/>
 					</div>
 				</div>
 
-				<select name="currency" onChange={handleChange}>
-					{options.map((option) => (
-						<option value={option.value}>{option.label}</option>
-					))}
-				</select>
+                <div className="flex flex-col justify-between space-y-2 md:mb-0 mt-8 mb-4 my-2">
+                    <div className="text-sm">Select a currency</div>
+                    <select name="currency" onChange={handleChange} className="p-2">
+                        {options.map((option) => (
+                            <option value={option.value}>{option.label}</option>
+                        ))}
+                    </select>
+                </div>
 
 				<div className="flex flex-row items-center space-x-4">
 					<button className="focus:outline-none border-2 border-black bg-white w-28 py-2 rounded-lg">
