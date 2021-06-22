@@ -44,7 +44,6 @@ function NewInvoiceForm() {
             var amount = quantity * rate;
 
             var total = amount + amount * (tax / 100);
-            console.log(total.toString());
             dispatch(addItem({ ...billState, subtotal: total.toString() }));
             setBillState({
                 itemName: "",

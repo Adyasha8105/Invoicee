@@ -14,7 +14,6 @@ export default function SideBar() {
 	const handleChange = (e) => {
 		const value = e.target.value;
 		setCurrency({ ...currency, [e.target.name]: value });
-    console.log(value);
     dispatch(updateCurrency(value))
 	};
 
@@ -34,15 +33,6 @@ export default function SideBar() {
 				<div className="flex flex-col justify-start items-between space-y-4">
 					<div className="flex flex-col justify-between space-y-2 md:mb-0 mb-4 my-2">
 						<div className="text-sm">Discount</div>
-						<input
-							type="Text"
-							className="inputFieldParent flex-shrink-1 min-w-min text-sm bg-gray-50 border-dashed border-2 border-opacity-20 border-gray-200 rounded-md hover:border-primary focus:outline-none p-1"
-							defaultValue="0"
-						/>
-					</div>
-
-					<div className="flex flex-col justify-between space-y-2 md:mb-0 mb-4 my-2">
-						<div className="text-sm">Tax</div>
 						<input
 							type="Text"
 							className="inputFieldParent flex-shrink-1 min-w-min text-sm bg-gray-50 border-dashed border-2 border-opacity-20 border-gray-200 rounded-md hover:border-primary focus:outline-none p-1"

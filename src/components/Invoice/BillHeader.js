@@ -6,8 +6,8 @@ export const BillHeader = () => {
 			<div className="col-span-3 text-center">Item</div>
 			<div className="col-span-1 text-center">HRS/QTY</div>
 			<div className="col-span-1 text-center">Rate</div>
-			<div className="col-span-1 text-center">Tax</div>
-			<div className="col-span-2 text-center">Subtotal</div>
+			<div className="col-span-1 text-center">Tax per item (%)</div>
+			<div className="col-span-2 text-center">Amount</div>
 		</div>
 	);
 };

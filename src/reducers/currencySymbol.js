@@ -1,7 +1,7 @@
 import { UPDATE_CURRENCY  } from "../constants/actionTypes";
 
 const currencystate = {
-  currency: "$",
+  currency: "Rs",
 }
 
 const currencySymbol = (state = currencystate, action) => {

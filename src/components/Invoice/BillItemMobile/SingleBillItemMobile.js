@@ -29,7 +29,7 @@ const SingleBillItemMobile = ({ billState, index, isEditable, setIsEditable }) =
 
 		var total = amount + amount * (tax / 100);
 
-		dispatch(updateItem({ ...localBillState, "subtotal": total.toString() }, index));
+		dispatch(updateItem({ ...localBillState, subtotal: total.toString() }, index));
 	};
 
 	const handleDelete = () => {
@@ -68,17 +68,11 @@ const SingleBillItemMobile = ({ billState, index, isEditable, setIsEditable }) =
 				)}
 			</div>
 			<div className="flex flex-row items-center justify-between py-2 px-4 ">
-				{billState.description.trim() !== "" ? (
-					<div className="w-full font-bold">Description</div>
-				) : null}
+				<div className="w-full font-bold">Description</div>
 				{!isEditable ? (
-					<>
-						{billState.description.trim() !== "" ? (
-							<div type="text" className="w-full p-2 contents">
-								{billState.description}
-							</div>
-						) : null}
-					</>
+					<div type="text" className="w-full p-2 contents">
+						{billState.description}
+					</div>
 				) : (
 					<input
 						type="text"
@@ -145,7 +139,9 @@ const SingleBillItemMobile = ({ billState, index, isEditable, setIsEditable }) =
 			</div>
 			<div className="flex flex-row items-center justify-between py-2 px-4">
 				<div className="w-full font-bold">Subtotal</div>
-				<div className="w-full font-bold contents">{currencySymbol}&nbsp;{billState.subtotal}</div>
+				<div className="w-full font-bold contents">
+					{currencySymbol}&nbsp;{billState.subtotal}
+				</div>
 			</div>
 		</div>
 	);
