@@ -2,22 +2,38 @@ import React, { useState } from "react";
 import { AiOutlineEye } from "react-icons/ai";
 import { FiDownload } from "react-icons/fi";
 import options from "../../data/currencysymbol.json"
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateCurrency, addDiscount, addVAT } from "../../actions";
+import firebase from "../../firebase/firebase"; 
+import { useHistory } from "react-router";
+import { logout } from "../../actions/index";
 
 export default function SideBar() {
     const [discount, setDiscount] = useState(0); 
     const [vat, setVat] = useState(0); 
-  const dispatch = useDispatch();
+  	const dispatch = useDispatch();
 	const [currency, setCurrency] = useState({
 		value: "",
 	});
 
+	const user = useSelector((state) => state.userReducer.user); 
+	console.log(user); 
+
+	const history = useHistory(); 
+
 	const handleChange = (e) => {
 		const value = e.target.value;
 		setCurrency({ ...currency, [e.target.name]: value });
-    dispatch(updateCurrency(value))
+		dispatch(updateCurrency(value));
 	};
+
+	const handleLogout = (e) => {
+		e.preventDefault(); 
+		firebase.auth().signOut().then(() => {
+			dispatch(logout);
+			history.push("/"); 
+		}); 
+	}
 
     const updateDiscountChange = (e) => {
         const value = e.target.value; 
@@ -32,9 +48,16 @@ export default function SideBar() {
     }
 
 	return (
-		<div className="py-4 px-10 w-auto md:grid flex ">
+		<div className="py-4 px-10 w-auto flex flex-col justify-between">
+			<div>
+			<div className="flex flex-col w-full justify-between">
+				<img src={user.photoURL} className="w-16 h-16 rounded-full" />
+				<div className="flex flex-col py-4">
+					<div className="font-bold text-lg">{user.displayName}</div>	
+					<div>{user.email}</div>
+				</div>
+			</div>
 			<div className="flex flex-col w-full space-y-8">
-
 				<h1 className="text-xl font-bold mt-12">Invoice settings</h1>
 				<div className="flex flex-col justify-start items-between space-y-8">
 					<div className="flex flex-col justify-between space-y-2 md:mb-0 mb-4 my-2">
@@ -86,6 +109,8 @@ export default function SideBar() {
 					</button>
 				</div>
 			</div>
+			</div>
+			<button onClick={handleLogout} className="bg-black text-white font-bold border-2 border-black rounded-md py-2">Logout</button>
 		</div>
 	);
 }

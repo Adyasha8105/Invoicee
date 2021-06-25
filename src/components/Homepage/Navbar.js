@@ -1,8 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { loginUsingGoogle } from "../../actions";
+import { useDispatch, useSelector } from "react-redux"; 
+import firebase from "../../firebase/firebase"; 
+import { useHistory } from "react-router-dom"; 
+
 
 function Navbar() {
 	const [top, setTop] = useState(true);
+
+	const dispatch = useDispatch(); 
+	const userState = useSelector((state) => state.userReducer.user); 
+
+	const history = useHistory(); 
+
 	useEffect(() => {
 		const scrollHandler = () => {
 			window.pageYOffset > 10 ? setTop(false) : setTop(true);
@@ -10,6 +21,31 @@ function Navbar() {
 		window.addEventListener("scroll", scrollHandler);
 		return () => window.removeEventListener("scroll", scrollHandler);
 	}, [top]);
+
+	useEffect(() => {
+		const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+			dispatch(loginUsingGoogle(userState)); 
+		}); 
+		return unsubscribe(); 
+	}, []);
+
+	const handleLogin = (e) => {
+		e.preventDefault(); 
+		firebase
+			.auth()
+			.setPersistence("session")
+			.then(() => {
+				var provider = new firebase.auth.GoogleAuthProvider(); 
+				firebase
+					.auth()
+					.signInWithPopup(provider)
+					.then((result) => {
+						dispatch(loginUsingGoogle(result.user));
+						history.push("/invoice"); 
+					})
+					.catch((err) => console.log(err)); 
+			});
+	}
 
 	return (
 		<header
@@ -51,7 +87,9 @@ function Navbar() {
 							</li>
 							<li>
 								<Link to="/" className="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800 ml-3">
-									<button className="bg-black text-white font-bold rounded-md py-2 px-4">
+									<button 
+										onClick={handleLogin}
+										className="bg-black text-white font-bold rounded-md py-2 px-4">
 										<span className="inline-block">New User</span>
 										<span className="inline-block">
 											<svg

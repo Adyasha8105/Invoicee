@@ -1,4 +1,4 @@
-import { ADD, DELETE, UPDATE, UPDATE_CURRENCY, ADD_DISCOUNT, ADD_VAT } from "../constants/actionTypes";
+import { ADD, DELETE, UPDATE, UPDATE_CURRENCY, ADD_DISCOUNT, ADD_VAT, LOGIN, LOGOUT } from "../constants/actionTypes";
 
 export const addItem = (item) => (dispatch) => {
     dispatch({
@@ -39,5 +39,18 @@ export const addVAT = (vat) => (dispatch) => {
     dispatch({
         type: ADD_VAT, 
         payload: vat, 
+    })
+}
+
+export const loginUsingGoogle = (user) => (dispatch) => {
+    dispatch({
+        type: LOGIN, 
+        payload: user,
+    });
+}
+
+export const logout = () => (dispatch) => {
+    dispatch({
+        type: LOGOUT, 
     })
 }
