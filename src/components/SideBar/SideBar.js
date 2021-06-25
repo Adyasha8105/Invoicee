@@ -4,6 +4,7 @@ import { FiDownload } from "react-icons/fi";
 import options from "../../data/currencysymbol.json"
 import { useDispatch } from "react-redux";
 import { updateCurrency, addDiscount, addVAT } from "../../actions";
+import invoicepdf from "../Invoicepdf/Invoicepdf"
 
 export default function SideBar() {
     const [discount, setDiscount] = useState(0); 
@@ -81,7 +82,7 @@ export default function SideBar() {
 					<button className="focus:outline-none border-2 border-primary bg-primary w-32 py-2 rounded-lg">
 						<div className="flex flex-row items-center justify-center space-x-2">
 							<FiDownload />
-							<div className="font-bold text-sm">Download</div>
+							<a onClick={invoicepdf} className="font-bold text-sm cursor-pointer">Download</a>
 						</div>
 					</button>
 				</div>
