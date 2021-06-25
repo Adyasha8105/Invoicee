@@ -34,7 +34,7 @@ const NewBillItemFormMobile = ({ billState, setBillState, setDisplayBillForm }) 
 				<div className="w-full font-bold">Description</div>
 				<textarea
 					type="text"
-					name="description"
+					name="Description"
 					className="w-full p-2"
 					value={billState.description}
 					placeholder="description"

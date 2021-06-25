@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const InvoiceDetails = () => {
     const [input, setInput] = useState({
-        invoiceNo: "001",
+        invoiceNo: "",
         invoiceDate: "",
         invoiceDueDate: "",
     });
@@ -25,6 +25,7 @@ const InvoiceDetails = () => {
                 <input
                     type="text"
                     name="invoiceNo"
+                    placeholder="001"
                     value={input.invoiceNo}
                     onChange={onChangeHandler}
                     className="inputFieldParent flex-shrink-1 min-w-min text-sm bg-gray-50 border-dashed border-2 border-opacity-20 border-gray-200 rounded-md hover:border-primary focus:outline-none p-1"

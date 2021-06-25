@@ -51,13 +51,13 @@ export default function SideBar() {
 	return (
 		<div className="py-4 px-10 w-auto flex flex-col justify-between">
 			<div>
-			<div className="flex flex-col w-full justify-between">
+			{/* <div className="flex flex-col w-full justify-between">
 				<img src={user.photoURL} className="w-16 h-16 rounded-full" />
 				<div className="flex flex-col py-4">
 					<div className="font-bold text-lg">{user.displayName}</div>	
 					<div>{user.email}</div>
 				</div>
-			</div>
+			</div> */}
 			<div className="flex flex-col w-full space-y-8">
 				<h1 className="text-xl font-bold mt-12">Invoice settings</h1>
 				<div className="flex flex-col justify-start items-between space-y-8">

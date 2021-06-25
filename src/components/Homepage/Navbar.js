@@ -24,7 +24,9 @@ function Navbar() {
 
 	useEffect(() => {
 		const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-			dispatch(loginUsingGoogle(userState)); 
+			if (user) {
+				dispatch(loginUsingGoogle(userState)); 
+			 }
 		}); 
 		return unsubscribe(); 
 	}, []);

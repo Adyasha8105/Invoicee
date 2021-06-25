@@ -62,7 +62,7 @@ const NewBillItemForm = ({ billState, setBillState, setDisplayBillForm }) => {
                     value={billState.description}
                     name="description"
                     onChange={(e) => updateBillItem(e)}
-                    placeholder="description"
+                    placeholder="Description"
                     className="mx-1 py-1 px-1 my-2 col-span-5 border border-gray-300 text-sm"
                 />
             </div>

@@ -113,7 +113,7 @@ const SingleBillItem = ({ billState, index, isEditable, setIsEditable }) => {
 						value={localBillState.description}
 						name="description"
 						onChange={(e) => updateBillItem(e)}
-						placeholder="description"
+						placeholder="Description"
 						className="mx-1 py-1 px-1 my-2 col-span-6 border border-gray-300 text-sm"
 					/>
 				)}

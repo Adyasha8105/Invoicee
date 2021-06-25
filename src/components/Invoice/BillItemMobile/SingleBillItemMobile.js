@@ -76,7 +76,7 @@ const SingleBillItemMobile = ({ billState, index, isEditable, setIsEditable }) =
 				) : (
 					<input
 						type="text"
-						name="description"
+						name="Description"
 						className="w-full p-2"
 						value={localBillState.description}
 						onChange={(e) => updateBillItem(e)}
