@@ -1,0 +1,1 @@
+export { default as LandingLottie } from "../Images/lottie/landing.json";

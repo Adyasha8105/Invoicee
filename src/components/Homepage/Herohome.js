@@ -1,58 +1,50 @@
 import React from "react";
+import Lottie from "lottie-react-web";
+import { LandingLottie } from "../Lottie";
 
 function HeroHome() {
-	let primaryThemeColor = "#FECCCB";
-	return (
-		<section className="relative">
-			<div className="absolute" aria-hidden="true">
-				<svg width="1360" height="680" viewBox="0 0 1360 578" xmlns="http://www.w3.org/2000/svg">
-					<defs>
-						<linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="illustration-01">
-							<stop stopColor="#FFF" offset="0%" />
-							<stop stopColor={primaryThemeColor} offset="77.402%" />
-							<stop stopColor={primaryThemeColor} offset="100%" />
-						</linearGradient>
-					</defs>
-					<g fill="url(#illustration-01)" fillRule="evenodd">
-						<circle cx="1232" cy="48" r="128" />
-						<circle cx="255" cy="343" r="64" />
-						<circle cx="1232" cy="540" r="65" />
-					</g>
-				</svg>
-			</div>
+  let primaryThemeColor = "#FECCCB";
 
-			<div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
-				<div className="pt-28 pb-12 md:pt-40 md:pb-20">
-					<div className="text-center pb-12 md:pb-16">
-						<h1
-							className="md:text-8xl text-6xl font-extrabold leading-tighter tracking-tighter mb-4"
-							data-aos="zoom-y-out"
-						>
-							Online Invoice <br />
-							<span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-gray-200">
-								Generator
-							</span>
-						</h1>
-						<div className="max-w-3xl mx-auto">
-							<p className="text-xl text-gray-600 my-8" data-aos="zoom-y-out" data-aos-delay="150">
-								It allows you rapidly to make invoices with our attractive invoice templates for
-								various fields. The invoices you make can be saved and downloaded as a PDF. <br />
-								<p className="font-bold my-2">Did we say its free of cost!</p>
-							</p>
-							<div className="flex md:flex-row flex-col md:justify-center md:space-x-7">
-								<button className="bg-primary text-black font-bold rounded-md py-3 px-6 transition-all duration-200 ease-in-out w-full mb-4 md:w-auto md:mb-0 hover:opacity-75">
-									Create Now
-								</button>
-								<button className="bg-black text-white font-bold rounded-md py-3 px-6 w-full md:w-auto transition-all duration-200 ease-in-out hover:opacity-75">
-									Learn more
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-	);
+  return (
+    <section className="text-gray-700 body-font ">
+      <div className="container mx-auto flex px-5 py-24 max-w-7xl md:flex-row flex-col items-center">
+        <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+          <h1 className="title-font sm:text-5xl text-2xl mb-2 font-extrabold leading-tighter tracking-tighter text-gray-900 tracking-wide">
+            Create Fast{" "}
+          </h1>
+          <h1 className="title-font sm:text-5xl text-3xl mb-4 font-extrabold leading-tighter tracking-tighter text-gray-900 tracking-wide">
+            invoices online{" "}
+          </h1>
+          <p className="leading-relaxed text-xl text-gray-600">
+            Our application allows you rapidly to make invoices with our
+            attractive invoice templates for various fields. The invoices you
+            make can be saved and downloaded as a PDF.
+          </p>
+          <p className="font-bold mt-2 mb-8 text-xl">Did we say its free of cost!</p>
+          <div className="flex md:flex-row flex-col md:space-x-7">
+            <button className="inline-flex text-white bg-primary border-0 py-3 px-12 font-semibold focus:outline-none rounded text-lg hover:opacity-75">
+              Create Now
+              <span className="inline-block pt-2">
+                <svg
+                  className="w-3 h-3 fill-current text-white flex-shrink-0 ml-2 -mr-1"
+                  viewBox="0 0 12 12"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.707 5.293L7 .586 5.586 2l3 3H0v2h8.586l-3 3L7 11.414l4.707-4.707a1 1 0 000-1.414z"
+                    fillRule="nonzero"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+        <div className="lg:max-w-lg lg:w-full md:w-3/4">
+          <Lottie options={{ animationData: LandingLottie }}  />
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default HeroHome;
