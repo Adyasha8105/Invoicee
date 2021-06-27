@@ -7,12 +7,12 @@ function HeroHome() {
 
   return (
     <section className="text-gray-700 body-font ">
-      <div className="container mx-auto flex px-5 py-24 max-w-7xl md:flex-row flex-col items-center">
-        <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-          <h1 className="title-font sm:text-5xl text-2xl mb-2 font-extrabold leading-tighter tracking-tighter text-gray-900 tracking-wide">
+      <div className="container mx-auto flex px-5 py-20 max-w-7xl md:flex-row flex-col items-center">
+        <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 sm:mt-15 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+          <h1 className="title-font sm:text-5xl text-4xl mb-2 font-extrabold leading-tighter tracking-tighter text-gray-900 tracking-wide">
             Create Fast{" "}
           </h1>
-          <h1 className="title-font sm:text-5xl text-3xl mb-4 font-extrabold leading-tighter tracking-tighter text-gray-900 tracking-wide">
+          <h1 className="title-font sm:text-5xl text-4xl mb-4 font-extrabold leading-tighter tracking-tighter text-gray-900 tracking-wide">
             invoices online{" "}
           </h1>
           <p className="leading-relaxed text-xl text-gray-600">
@@ -39,8 +39,8 @@ function HeroHome() {
             </button>
           </div>
         </div>
-        <div className="lg:max-w-lg lg:w-full md:w-3/4">
-          <Lottie options={{ animationData: LandingLottie }}  />
+        <div className="lg:max-w-lg lg:w-full md:w-2/5">
+          <Lottie options={{ animationData: LandingLottie }} width={590} />
         </div>
       </div>
     </section>
