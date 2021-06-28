@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../components/Homepage/Navbar";
 import HeroHome from "../components/Homepage/Herohome"
 import FeaturesBlock from "../components/Homepage/FeaturesBlock"
-import Creators from "../components/Homepage/creators"
+import Videoshow from "../components/Homepage/videoshow"
 import Footer from "../components/Homepage/Footer"
 
 function Home() {
@@ -12,7 +12,7 @@ function Home() {
             <main className="flex-grow">
                 <HeroHome/>
                 <FeaturesBlock/>
-                <Creators/>
+                <Videoshow/>
                 <Footer/>
             </main>
         </div>
