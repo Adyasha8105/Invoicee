@@ -17,7 +17,7 @@ const InvoiceHeading = () => {
 
     return (
         <input
-            className="px-2 py-1 sm:text-xl text-sm text-black self-center text-center focus:outline-none bg-gray-50 font-semibold border-dashed border-2 border-gray-200"
+            className="px-2 py-1 sm:text-xl text-sm text-black self-center text-center focus:outline-none font-semibold parent bg-gray-50 border-dashed border-2 border-opacity-20 border-gray-400 hover:border-primary"
             type="text"
             name="invoice"
             placeholder="INVOICE"

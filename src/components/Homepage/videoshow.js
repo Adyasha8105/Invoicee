@@ -28,7 +28,7 @@ function Creators() {
               y2="100%"
               id="illustration-02"
             >
-              <stop stopColor="#1F488A" offset="0%" />
+              <stop stopColor="#1F488A  " offset="0%" />
               <stop stopColor={primaryThemeColor} offset="77.402%" />
               <stop stopColor={primaryThemeColor} offset="100%" />
             </linearGradient>

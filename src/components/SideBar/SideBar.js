@@ -59,7 +59,7 @@ export default function SideBar() {
 				</div>
 			</div> */}
 			<div className="flex flex-col w-full space-y-8">
-				<h1 className="text-xl font-bold mt-12">Invoice settings</h1>
+				<h1 className="text-2xl font-bold mt-12">Invoice Settings</h1>
 				<div className="flex flex-col justify-start items-between space-y-8">
 					<div className="flex flex-col justify-between space-y-2 md:mb-0 mb-4 my-2">
 						<div className="text-sm">Discount (in %)</div>
@@ -88,7 +88,7 @@ export default function SideBar() {
 
                 <div className="flex flex-col justify-between space-y-2 md:mb-0 mt-8 mb-4 my-2">
                     <div className="text-sm">Select a currency</div>
-                    <select name="currency" onChange={handleChange} className="p-2">
+                    <select name="currency" onChange={handleChange} className="p-2 bg-gray-50 text-sm border-opacity-20 border-gray-200 rounded-md hover:border-primary focus:outline-none p-1">
                         {options.map((option) => (
                             <option value={option.value}>{option.label}</option>
                         ))}
@@ -96,22 +96,22 @@ export default function SideBar() {
                 </div>
 
 				<div className="flex flex-row items-center space-x-4">
-					<button className="focus:outline-none border-2 border-black bg-white w-28 py-2 rounded-lg">
+					<button className="focus:outline-none border-2 border-primary bg-white w-28 py-2 rounded-lg hover:bg-primary hover:text-white ">
 						<div className="flex flex-row items-center justify-center space-x-2">
 							<AiOutlineEye />
 							<div className="font-bold text-sm">Preview</div>
 						</div>
 					</button>
-					<button className="focus:outline-none border-2 border-primary bg-primary w-32 py-2 rounded-lg">
-						<div className="flex flex-row items-center justify-center space-x-2">
+					<button className="focus:outline-none border-2 border-primary bg-primary w-32 py-2 rounded-lg hover:opacity-75">
+						<div className="flex flex-row items-center justify-center space-x-2 text-white ">
 							<FiDownload />
-							<a onClick={invoicepdf} className="font-bold text-sm cursor-pointer">Download</a>
+							<a onClick={invoicepdf} className="font-bold text-sm text-white cursor-pointer ">Download</a>
 						</div>
 					</button>
 				</div>
 			</div>
 			</div>
-			<button onClick={handleLogout} className="bg-black text-white font-bold border-2 border-black rounded-md py-2">Logout</button>
+			<button onClick={handleLogout} className="bg-primary text-white font-bold border-2 border-primary rounded-md py-2 hover:bg-primary mt-10 hover:opacity-75">Logout</button>
 		</div>
 	);
 }

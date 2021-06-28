@@ -127,7 +127,7 @@ function NewInvoiceForm() {
           )}
           <button
             onClick={(e) => handleAddItem()}
-            className="w-full bg-white transition-all duration-200 border-2 border-transparent border-gray-100 focus:outline-none rounded-md mt-4 px-4 py-2 text-gray-600"
+            className="w-full bg-white transition-all duration-200 border-2 border-transparent border-gray-100 focus:outline-none rounded-md mt-4 px-4 py-2 text-gray-600 hover:border-primary"
           >
             Add new invoice item
           </button>
