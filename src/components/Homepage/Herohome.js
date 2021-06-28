@@ -8,10 +8,10 @@ function HeroHome() {
     <section className="text-gray-700 body-font ">
       <div className="container mx-auto flex px-5 md:py-20 max-w-7xl md:flex-row flex-col items-center md:mt-10 py-40">
         <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 sm:mt-15 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-          <h1 className="title-font sm:text-5xl text-4xl mb-2 font-extrabold leading-tighter tracking-tighter text-gray-900 tracking-wide">
+          <h1 className="title-font sm:text-6xl text-4xl mb-2 font-extrabold leading-tighter tracking-tighter text-gray-900 tracking-wide">
             Create Fast{" "}
           </h1>
-          <h1 className="title-font sm:text-5xl text-4xl mb-4 font-extrabold leading-tighter tracking-tighter text-gray-900 tracking-wide">
+          <h1 className="title-font sm:text-6xl text-4xl mb-4 font-extrabold leading-tighter tracking-tighter text-gray-900 tracking-wide">
             invoices online{" "}
           </h1>
           <p className="leading-relaxed text-xl text-gray-600">

@@ -105,7 +105,7 @@ export default function SideBar() {
 					<button className="focus:outline-none border-2 border-primary bg-primary w-32 py-2 rounded-lg hover:opacity-75">
 						<div className="flex flex-row items-center justify-center space-x-2 text-white ">
 							<FiDownload />
-							<a onClick={invoicepdf} className="font-bold text-sm text-white cursor-pointer ">Download</a>
+							<a onClick={invoicepdf} href="/" className="font-bold text-sm text-white cursor-pointer ">Download</a>
 						</div>
 					</button>
 				</div>

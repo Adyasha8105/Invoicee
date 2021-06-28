@@ -29,6 +29,7 @@ function Navbar() {
 			 }
 		}); 
 		return unsubscribe(); 
+		// eslint-disable-next-line
 	}, []);
 
 	const handleLogin = (e) => {
