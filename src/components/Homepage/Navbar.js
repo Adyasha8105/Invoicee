@@ -82,17 +82,17 @@ function Navbar() {
 							<li>
 								<Link
 									to="/"
-									className="font-bold text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out"
+									className="font-bold text-primary hover:opacity-75 px-5 py-3 flex items-center transition duration-150 ease-in-out"
 								>
 									Login
 								</Link>
 							</li>
 							<li>
-								<Link to="/" className="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800 ml-3">
+								<Link to="/" className="btn-sm text-gray-200 hover:opacity-80 ml-3">
 									<button 
 										onClick={handleLogin}
-										className="bg-black text-white font-semibold rounded-md py-2 px-5">
-										<span className="inline-block">New User</span>
+										className="bg-primary text-white font-semibold rounded-md py-2 px-5">
+										<span className="inline-block">Sign up</span>
 									</button>
 								</Link>
 							</li>
