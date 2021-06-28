@@ -61,7 +61,7 @@ function Navbar() {
 						<Link to="/" className="block" aria-label="Cruip">
 							{window.innerWidth > 640 ? (
 								<img
-									src={require("../../Images/Logo.svg").default}
+									src={require("../../Images/Mainlogo.svg").default}
 									width="150"
 									height="96"
 									alt="logo"

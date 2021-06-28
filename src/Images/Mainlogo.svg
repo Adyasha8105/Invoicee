@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1773.108" height="449" viewBox="0 0 1773.108 449">
+  <g id="Group_7" data-name="Group 7" transform="translate(2592.108 -689)">
+    <g id="Group_5" data-name="Group 5" transform="translate(-3630 -820)">
+      <g id="Group_3" data-name="Group 3" transform="translate(1037.892 1529.796)">
+        <path id="notion-logo-1" d="M77.46,73.395C89.768,83.685,94.385,82.9,117.5,81.313L335.389,67.849c4.621,0,.779-4.744-.763-5.533L298.439,35.4c-6.934-5.54-16.172-11.884-33.877-10.3L53.578,40.935c-7.695.785-9.231,4.744-6.167,7.918Zm13.082,52.256V361.576c0,12.679,6.157,17.423,20.015,16.639l239.462-14.259c13.865-.784,15.41-9.505,15.41-19.806V109.808c0-10.283-3.844-15.829-12.331-15.037L102.857,109.808c-9.235.8-12.316,5.553-12.316,15.843ZM35.863,19.56,255.321,2.928C282.271.55,289.2,2.143,306.143,14.805L376.2,65.474c11.559,8.713,15.412,11.085,15.412,20.583v277.9c0,17.417-6.166,27.717-27.721,29.292L109.032,409.085c-16.181.794-23.882-1.579-32.356-12.67L25.087,327.536C15.844,314.856,12,305.371,12,294.274V47.26c0-14.242,6.167-26.123,23.863-27.7Z" transform="translate(-12 -2)" fill="#0b7ee1" fill-rule="evenodd"/>
+      </g>
+      <g id="Group_4" data-name="Group 4" transform="translate(1145.831 1637.045)">
+        <g id="Path_1" data-name="Path 1" transform="translate(160.959)" fill="#0b7ee1">
+          <path d="M 26.75 36.57703399658203 C 20.27102088928223 36.57703399658203 15 31.73731803894043 15 25.78851318359375 C 15 19.83970832824707 20.27102088928223 14.99999141693115 26.75 14.99999141693115 C 33.22897720336914 14.99999141693115 38.5 19.83970832824707 38.5 25.78851318359375 C 38.5 31.73731803894043 33.22897720336914 36.57703399658203 26.75 36.57703399658203 Z" stroke="none"/>
+          <path d="M 26.75 1.1444091796875e-05 C 41.52361679077148 1.1444091796875e-05 53.5 11.5458984375 53.5 25.78851318359375 C 53.5 40.0311279296875 41.52361679077148 51.5770149230957 26.75 51.5770149230957 C 11.97638320922852 51.5770149230957 0 40.0311279296875 0 25.78851318359375 C 0 11.5458984375 11.97638320922852 1.1444091796875e-05 26.75 1.1444091796875e-05 Z" stroke="none" fill="#0b7ee1"/>
+        </g>
+        <line id="Line_1" data-name="Line 1" y1="4.36" x2="83.916" transform="translate(0.084 52.703)" fill="none" stroke="#0b7ee1" stroke-linecap="round" stroke-width="30"/>
+        <line id="Line_3" data-name="Line 3" y1="12.672" x2="201" transform="translate(0.084 211.86)" fill="none" stroke="#0b7ee1" stroke-linecap="round" stroke-width="30"/>
+        <line id="Line_4" data-name="Line 4" y1="10.64" x2="187.649" transform="translate(0 157.41)" fill="none" stroke="#0b7ee1" stroke-linecap="round" stroke-width="30"/>
+        <path id="Path_2" data-name="Path 2" d="M0,4.7,41.744,2.6l52-2.6" transform="translate(0.084 106.182)" fill="#0b7ee1" stroke="#0b7ee1" stroke-linecap="round" stroke-width="30"/>
+      </g>
+    </g>
+    <text id="Invoicee" transform="translate(-2168 1052)" fill="#1f488a" font-size="387" font-family="TrebuchetMS, Trebuchet MS" letter-spacing="-0.034em" style="mix-blend-mode: darken;isolation: isolate"><tspan x="0" y="0">Invoicee</tspan></text>
+  </g>
+</svg>
