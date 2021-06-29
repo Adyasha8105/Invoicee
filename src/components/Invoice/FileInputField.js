@@ -1,15 +1,24 @@
 import { GrGallery } from "react-icons/gr";
 import React, { useState } from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {updateCurrentInvoice} from "../../actions";
 
 const FileInputField = () => {
 
   const [imagePreviewUrl, setImagePreviewUrl] = useState(null)
+
+    const currentInvoice = useSelector((state) => state.invoiceReducer); 
+    const dispatch = useDispatch(); 
+
+    console.log("Chaning the logo"); 
+    console.log({ currentInvoice }); 
 
 	const fileChangedHandler = (event) => {
 		let reader = new FileReader()
 	
 		reader.onloadend = () => {
 			setImagePreviewUrl(reader.result)
+            dispatch(updateCurrentInvoice("logo", reader.result));
 		}
 		reader.readAsDataURL(event.target.files[0])
 	}

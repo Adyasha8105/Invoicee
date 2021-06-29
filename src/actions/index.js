@@ -1,4 +1,4 @@
-import { ADD, DELETE, UPDATE, UPDATE_CURRENCY, ADD_DISCOUNT, ADD_VAT, LOGIN, LOGOUT } from "../constants/actionTypes";
+import { ADD, DELETE, UPDATE, UPDATE_CURRENCY, ADD_DISCOUNT, ADD_VAT, LOGIN, LOGOUT, UPDATE_CURR_INVOICE } from "../constants/actionTypes";
 
 export const addItem = (item) => (dispatch) => {
     dispatch({
@@ -53,4 +53,11 @@ export const logout = () => (dispatch) => {
     dispatch({
         type: LOGOUT, 
     })
+}
+
+export const updateCurrentInvoice = (field, value) => (dispatch) => {
+    dispatch({
+        type: UPDATE_CURR_INVOICE, 
+        payload: { field: field, value: value },
+    }); 
 }

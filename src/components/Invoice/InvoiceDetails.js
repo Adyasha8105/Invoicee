@@ -1,6 +1,8 @@
 import React from "react";
 import "../../styles/InputField.css";
 import { useState } from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {updateCurrentInvoice} from "../../actions";
 
 const InvoiceDetails = () => {
     const [input, setInput] = useState({
@@ -9,14 +11,21 @@ const InvoiceDetails = () => {
         invoiceDueDate: "",
     });
 
+    const currentInvoice = useSelector((state) => state.invoiceReducer); 
+    const dispatch = useDispatch(); 
+
+    console.log("changing invoice details:");
+    console.log({ currentInvoice }); 
+
     function onChangeHandler(evt) {
         const value = evt.target.value;
         setInput({
             ...input,
             [evt.target.name]: value,
         });
+
+        dispatch(updateCurrentInvoice("details", input)); 
     }
-    // console.log(input);
 
     return (
         <div>

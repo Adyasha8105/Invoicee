@@ -8,7 +8,7 @@ import { BillHeader } from "./Invoice/BillHeader";
 import NewBillItemForm from "./Invoice/BillItem/NewBillItemForm";
 import InvoiceSummary from "./Invoice/InvoiceSummary";
 import NewBillItemFormMobile from "./Invoice/BillItemMobile/NewBillItemFormMobile";
-import { addItem } from "../actions";
+import { addItem, updateCurrentInvoice } from "../actions";
 import { useSelector, useDispatch } from "react-redux";
 import SingleBillItem from "./Invoice/BillItem/SingleBillItem";
 import SingleBillItemMobile from "./Invoice/BillItemMobile/SingleBillItemMobile";
@@ -16,6 +16,8 @@ import Invoicefooter from "./Invoice/Invoicefooter";
 
 function NewInvoiceForm() {
   const billItems = useSelector((state) => state.billReducer.billItems);
+  const currentInvoice = useSelector((state) => state.invoiceReducer);
+
   const [displayBillForm, setDisplayBillForm] = useState(true);
   const [isEditable, setIsEditable] = useState(false);
   const [billState, setBillState] = useState({
@@ -28,6 +30,9 @@ function NewInvoiceForm() {
   });
 
   const dispatch = useDispatch();
+
+    console.log("After adding a bill item"); 
+    console.log({ currentInvoice }); 
 
   const handleAddItem = () => {
     if (!displayBillForm) {
@@ -46,6 +51,11 @@ function NewInvoiceForm() {
 
       var total = amount + amount * (tax / 100);
       dispatch(addItem({ ...billState, subtotal: total.toString() }));
+
+      // adding new item 
+      var tempBillItems = billItems; 
+        tempBillItems = [ ...tempBillItems, { ...billState, subtotal: total.toString() }];
+      dispatch(updateCurrentInvoice("billItems", tempBillItems));
       setBillState({
         itemName: "",
         quantity: "",

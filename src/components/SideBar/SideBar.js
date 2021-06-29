@@ -18,7 +18,6 @@ export default function SideBar() {
 	});
 
 	const user = useSelector((state) => state.userReducer.user); 
-	console.log(user); 
 
 	const history = useHistory(); 
 

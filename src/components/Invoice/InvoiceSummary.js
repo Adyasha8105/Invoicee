@@ -1,25 +1,36 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {updateCurrentInvoice} from "../../actions";
 
 const InvoiceSummary = () => {
 	const currencySymbol = useSelector((state) => state.currencySymbol.currency);
-
     const subtotalList = useSelector((state) => state.billReducer.billItems);
-
+    const currentInvoice = useSelector((state) => state.invoiceReducer); 
     const discount = useSelector((state) => state.sideBarReducer.discount);
-    console.log(discount); 
     const vat = useSelector((state) => state.sideBarReducer.vat); 
+
+    const dispatch = useDispatch();
 
     const [tax, setTax] = useState(0); 
     const [input, setInput] = useState({
         tax: 0,
     });
 
+    useEffect(() => {
+        var temp = {
+            subtotal: "", 
+            tax: "", 
+            discount: discount, 
+            vat: vat,
+            total: "", 
+        }; 
+        dispatch(updateCurrentInvoice("summary", temp)); 
+    }, []); 
+
     var subtotal = 0;
     subtotalList.forEach((val) => {
         subtotal = subtotal + Number(val.subtotal); 
     });
-    console.log(subtotal); 
 
 
 	function onChangeHandler(evt) {
@@ -32,6 +43,14 @@ const InvoiceSummary = () => {
         var tempTax = subtotal * value * 0.01; 
         setTax(tempTax.toFixed(2)); 
 
+        const tempSummary = {
+            subtotal: subtotal, 
+            tax: tempTax.toFixed(2), 
+            discount: discount, 
+            vat: vat, 
+            total: "", 
+        }; 
+        dispatch(updateCurrentInvoice("summary", tempSummary)); 
 	}
 
 	return (

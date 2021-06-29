@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BiPencil, BiSave, BiTrash } from "react-icons/all";
-import { deleteItem, updateItem } from "../../../actions";
+import { deleteItem, updateItem, updateCurrentInvoice } from "../../../actions";
 
 const SingleBillItemMobile = ({ billState, index, isEditable, setIsEditable }) => {
 	const currencySymbol = useSelector((state) => state.currencySymbol.currency);
+    const billItems = useSelector((state) => state.billReducer.billItems); 
+    const currentInvoice = useSelector((state) => state.invoiceReducer); 
 	const dispatch = useDispatch();
 	const [localBillState, setLocalBillState] = useState({
 		itemName: billState.itemName,
@@ -15,8 +17,10 @@ const SingleBillItemMobile = ({ billState, index, isEditable, setIsEditable }) =
 		description: billState.description,
 	});
 
+    console.log("After updating/deleting a bill item in mobile view"); 
+    console.log({ currentInvoice }); 
+
 	const updateBillItem = (e) => {
-		console.log(e.target.value);
 		const value = e.target.value;
 		setLocalBillState({ ...localBillState, [e.target.name]: value });
 	};
@@ -30,10 +34,19 @@ const SingleBillItemMobile = ({ billState, index, isEditable, setIsEditable }) =
 		var total = amount + amount * (tax / 100);
 
 		dispatch(updateItem({ ...localBillState, subtotal: total.toString() }, index));
+    const tempBillItems = billItems.map((item, ind) => {
+      if (index === ind) {
+          return { ...localBillState, subtotal: total.toString() };
+      }
+      return item; 
+    });
+    dispatch(updateCurrentInvoice("billItems", tempBillItems)); 
 	};
 
 	const handleDelete = () => {
 		dispatch(deleteItem(index));
+    const tempBillItems = billItems.filter((item, ind) => ind !== index); 
+    dispatch(updateCurrentInvoice("billItems", tempBillItems)); 
 	};
 	return (
 		<div className="w-full bg-gray-100 flex flex-col text-sm rounded-md mb-4">

@@ -3,10 +3,15 @@ import "../../../styles/ContactField.css";
 import { BsPerson } from "react-icons/bs";
 import { useForm } from "react-hook-form";
 import { TextField } from "../ContactForms/Input";
+import {useDispatch, useSelector} from "react-redux";
+import {updateCurrentInvoice} from "../../../actions";
 
 const ToContactField = () => {
     const [showModal, setShowModal] = useState(false);
     const [recipientDetails, setRecipientDetails] = useState(null);
+    
+    const currentInvoice = useSelector((state) => state.invoiceReducer); 
+    const dispatch = useDispatch(); 
 
     const {
         handleSubmit,
@@ -17,6 +22,7 @@ const ToContactField = () => {
     const onSubmit = (data) => {
         setShowModal(false);
         setRecipientDetails(data);
+        dispatch(updateCurrentInvoice("recipient", data));
     };
 
     return (

@@ -3,10 +3,15 @@ import "../../../styles/ContactField.css";
 import { IoPeopleOutline } from "react-icons/io5";
 import { useForm } from "react-hook-form";
 import { TextField } from "../ContactForms/Input";
+import { useSelector, useDispatch } from "react-redux";
+import { updateCurrentInvoice } from "../../../actions";
 
 const FromContactField = () => {
     const [showModal, setShowModal] = useState(false);
     const [senderDetails, setSenderDetails] = useState(null);
+
+    const currentInvoice = useSelector((state) => state.invoiceReducer); 
+    const dispatch = useDispatch(); 
 
     const {
         handleSubmit,
@@ -14,9 +19,13 @@ const FromContactField = () => {
         register,
     } = useForm({});
 
+    console.log("Changing the FROM contact details"); 
+    console.log({ currentInvoice }); 
+
     const onSubmit = (data) => {
         setShowModal(false);
         setSenderDetails(data);
+        dispatch(updateCurrentInvoice("sender", data)); 
     };
 
     return (

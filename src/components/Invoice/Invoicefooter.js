@@ -1,10 +1,18 @@
 import React from "react";
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { updateCurrentInvoice } from "../../actions";
 
 const Invoicefooter = () => {
     const [state, setState] = useState({
         invoice: "",
     });
+
+    const currentInvoice = useSelector((state) => state.invoiceReducer); 
+    const dispatch = useDispatch(); 
+
+    console.log("changing invoice footer");
+    console.log({ currentInvoice }); 
 
     function onChangeHandler(evt) {
         const value = evt.target.value;
@@ -12,8 +20,8 @@ const Invoicefooter = () => {
             ...state,
             [evt.target.name]: value,
         });
+        dispatch(updateCurrentInvoice("additional", state.invoice));
     }
-    // console.log(state);
 
     return (
         <input

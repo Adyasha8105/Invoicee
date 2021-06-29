@@ -7,3 +7,5 @@ export const ADD_VAT = "ADD_VAT";
 
 export const LOGIN = "LOGIN";
 export const LOGOUT = "LOGOUT"; 
+
+export const UPDATE_CURR_INVOICE = "UPDATE_CURRENT_INVOICE"; 
