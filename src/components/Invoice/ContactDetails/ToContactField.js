@@ -19,6 +19,9 @@ const ToContactField = () => {
         register,
     } = useForm();
 
+    console.log("Changing the TO contact details"); 
+    console.log({ currentInvoice }); 
+
     const onSubmit = (data) => {
         setShowModal(false);
         setRecipientDetails(data);

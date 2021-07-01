@@ -58,17 +58,18 @@ function Navbar() {
                     Logout
                   </button>
 
-                  {/* <a className="rounded-md text-sm font-medium">
+                  <div className="rounded-md text-sm font-medium">
                     <div className="flex flex-row w-full">
                       <div className="self-center pr-2 text-primary font-semibold">
                         {user.displayName}
                       </div>
                       <img
                         src={user.photoURL}
+                        alt="user"
                         className="w-10 h-10 rounded-full"
                       />
                     </div>
-                  </a> */}
+                  </div>
                 </div>
               </div>
             </div>
@@ -142,17 +143,18 @@ function Navbar() {
                     Logout
                   </button>
 
-                  {/* <a className="rounded-md text-sm font-medium">
+                  <div className="rounded-md text-sm font-medium">
                     <div className="flex flex-row w-full  px-5 py-3">
                       <img
                         src={user.photoURL}
                         className="w-10 h-10 rounded-full"
+                        alt="user"
                       />
                       <div className="self-center pr-2 text-primary font-semibold">
                         &nbsp;&nbsp;{user.displayName}
                       </div>
                     </div>
-                  </a> */}
+                  </div>
                 </div>
               </div>
             </div>

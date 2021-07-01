@@ -25,6 +25,7 @@ const InvoiceSummary = () => {
             total: "", 
         }; 
         dispatch(updateCurrentInvoice("summary", temp)); 
+		// eslint-disable-next-line
     }, []); 
 
     var subtotal = 0;
@@ -32,6 +33,8 @@ const InvoiceSummary = () => {
         subtotal = subtotal + Number(val.subtotal); 
     });
 
+	console.log("Changing the invoice summary"); 
+    console.log({ currentInvoice }); 
 
 	function onChangeHandler(evt) {
 		const value = evt.target.value;
