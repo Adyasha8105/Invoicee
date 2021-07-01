@@ -57,7 +57,7 @@ const FromContactField = () => {
                                 {senderDetails.name}
                             </div>
                             <div className="text-sm">{senderDetails.email}</div>
-                            <div className="text-sm">
+                            <div className="text-sm mt-1">
                                 {senderDetails.address}
                             </div>
                             <div className="text-sm">{senderDetails.phone}</div>
@@ -67,7 +67,7 @@ const FromContactField = () => {
                             <div className="text-sm">
                                 {senderDetails.tax_regd_no}
                             </div>
-                            <div className="text-sm">
+                            <div className="text-sm mt-1">
                                 {senderDetails.others}
                             </div>
                         </div>

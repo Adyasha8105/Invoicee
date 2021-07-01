@@ -2,11 +2,8 @@ import React, { useState } from "react";
 import { AiOutlineEye } from "react-icons/ai";
 import { FiDownload } from "react-icons/fi";
 import options from "../../data/currencysymbol.json"
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { updateCurrency, addDiscount, addVAT } from "../../actions";
-import firebase from "../../firebase/firebase"; 
-import { useHistory } from "react-router";
-import { logout } from "../../actions/index";
 import invoicepdf from "../Invoicepdf/Invoicepdf"
 
 export default function SideBar() {
@@ -17,23 +14,11 @@ export default function SideBar() {
 		value: "",
 	});
 
-	const user = useSelector((state) => state.userReducer.user); 
-
-	const history = useHistory(); 
-
 	const handleChange = (e) => {
 		const value = e.target.value;
 		setCurrency({ ...currency, [e.target.name]: value });
 		dispatch(updateCurrency(value));
 	};
-
-	const handleLogout = (e) => {
-		e.preventDefault(); 
-		firebase.auth().signOut().then(() => {
-			dispatch(logout);
-			history.push("/"); 
-		}); 
-	}
 
     const updateDiscountChange = (e) => {
         const value = e.target.value; 
@@ -49,14 +34,6 @@ export default function SideBar() {
 
 	return (
 		<div className="py-4 px-10 w-auto flex flex-col justify-between">
-			<div>
-			{/* <div className="flex flex-col w-full justify-between">
-				<img src={user.photoURL} className="w-16 h-16 rounded-full" />
-				<div className="flex flex-col py-4">
-					<div className="font-bold text-lg">{user.displayName}</div>	
-					<div>{user.email}</div>
-				</div>
-			</div> */}
 			<div className="flex flex-col w-full space-y-8">
 				<h1 className="text-2xl font-bold mt-12">Invoice Settings</h1>
 				<div className="flex flex-col justify-start items-between space-y-8">
@@ -109,8 +86,6 @@ export default function SideBar() {
 					</button>
 				</div>
 			</div>
-			</div>
-			<button onClick={handleLogout} className="bg-primary text-white font-bold border-2 border-primary rounded-md py-2 hover:bg-primary mt-10 hover:opacity-75">Logout</button>
 		</div>
 	);
 }

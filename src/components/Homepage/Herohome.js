@@ -14,7 +14,7 @@ function HeroHome() {
           <h1 className="title-font sm:text-6xl text-4xl mb-4 font-extrabold leading-tighter tracking-tighter text-gray-900 tracking-wide">
             invoices online{" "}
           </h1>
-          <p className="leading-relaxed text-xl text-gray-600">
+          <p className="leading-relaxed text-md text-gray-600">
             Our application allows you rapidly to make invoices with our
             attractive invoice templates for various fields. The invoices you
             make can be saved and downloaded as a PDF.

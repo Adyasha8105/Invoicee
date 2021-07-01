@@ -1,16 +1,11 @@
 import React from "react";
-import {
-  FaSave,
-  FaStar,
-  FaFileAlt,
-} from "react-icons/fa";
+import { FaSave, FaStar, FaFileAlt } from "react-icons/fa";
 
 function FeaturesBlocks() {
-
   return (
     <section className="relative">
       <div
-        className="absolute inset-0 top-1/2 md:mt-24 lg:mt-0 bg-secondary pointer-events-none" 
+        className="absolute inset-0 top-1/2 md:mt-24 lg:mt-0 bg-secondary pointer-events-none"
         aria-hidden="true"
       ></div>
       <div className="absolute left-0 right-0 bottom-0 m-auto w-px p-px h-20 bg-white transform translate-y-1/2"></div>
@@ -21,11 +16,13 @@ function FeaturesBlocks() {
             <h2 className="md:text-5xl text-4xl font-extrabold leading-tighter tracking-tighter tracking-wide mb-4">
               Features
             </h2>
-            <p className="text-xl text-gray-600 italic">"Make beautiful invoices in just one click!"</p>
+            <p className="text-xl text-gray-600 italic">
+              "Make beautiful invoices in just one click!"
+            </p>
           </div>
 
           <div className="max-w-sm mx-auto grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-start md:max-w-2xl lg:max-w-none">
-            <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-sm hover:shadow-md cursor-pointer">
+            <div className="relative flex flex-col items-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md cursor-pointer">
               <svg
                 className="w-16 h-16 p-1 -mt-1 mb-2"
                 viewBox="0 0 64 64"
@@ -55,7 +52,7 @@ function FeaturesBlocks() {
               </p>
             </div>
 
-            <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-sm hover:shadow-md cursor-pointer">
+            <div className="relative flex flex-col items-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md cursor-pointer">
               <svg
                 className="w-16 h-16 p-1 -mt-1 mb-2"
                 viewBox="0 0 64 64"
@@ -84,7 +81,7 @@ function FeaturesBlocks() {
               </p>
             </div>
 
-            <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-sm hover:shadow-md cursor-pointer">
+            <div className="relative flex flex-col items-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md cursor-pointer">
               <svg
                 className="w-16 h-16 p-1 -mt-1 mb-2"
                 viewBox="0 0 64 64"

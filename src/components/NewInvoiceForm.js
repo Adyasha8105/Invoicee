@@ -31,8 +31,8 @@ function NewInvoiceForm() {
 
   const dispatch = useDispatch();
 
-    console.log("After adding a bill item"); 
-    console.log({ currentInvoice }); 
+  console.log("After adding a bill item");
+  console.log({ currentInvoice });
 
   const handleAddItem = () => {
     if (!displayBillForm) {
@@ -52,9 +52,12 @@ function NewInvoiceForm() {
       var total = amount + amount * (tax / 100);
       dispatch(addItem({ ...billState, subtotal: total.toString() }));
 
-      // adding new item 
-      var tempBillItems = billItems; 
-        tempBillItems = [ ...tempBillItems, { ...billState, subtotal: total.toString() }];
+      // adding new item
+      var tempBillItems = billItems;
+      tempBillItems = [
+        ...tempBillItems,
+        { ...billState, subtotal: total.toString() },
+      ];
       dispatch(updateCurrentInvoice("billItems", tempBillItems));
       setBillState({
         itemName: "",
@@ -87,32 +90,31 @@ function NewInvoiceForm() {
           <InvoiceDetails />
         </div>
         <div>
-          {window.innerWidth > 600 ? (
-            <>
-              <BillHeader />
-              {billItems.length > 0 ? (
-                <div>
-                  {billItems.map((item, index) => (
-                    <SingleBillItem
-                      isEditable={isEditable}
-                      setIsEditable={setIsEditable}
-                      billState={item}
-                      key={index}
-                      index={index}
-                    />
-                  ))}
-                </div>
-              ) : null}
-              {displayBillForm ? (
-                <NewBillItemForm
-                  billState={billState}
-                  setBillState={setBillState}
-                  setDisplayBillForm={setDisplayBillForm}
-                />
-              ) : null}
-            </>
-          ) : (
-            <>
+        <BillHeader />
+          <div className="hidden md:block">     
+            {billItems.length > 0 ? (
+              <div>
+                {billItems.map((item, index) => (
+                  <SingleBillItem
+                    isEditable={isEditable}
+                    setIsEditable={setIsEditable}
+                    billState={item}
+                    key={index}
+                    index={index}
+                  />
+                ))}
+              </div>
+            ) : null}
+
+            {displayBillForm ? (
+              <NewBillItemForm
+                billState={billState}
+                setBillState={setBillState}
+                setDisplayBillForm={setDisplayBillForm}
+              />
+            ) : null}
+          </div>
+          <div className="block md:hidden">
               {billItems.length > 0 ? (
                 <div>
                   {billItems.map((item, index) => (
@@ -133,8 +135,8 @@ function NewInvoiceForm() {
                   setDisplayBillForm={setDisplayBillForm}
                 />
               ) : null}
-            </>
-          )}
+           
+          </div>
           <button
             onClick={(e) => handleAddItem()}
             className="w-full bg-white transition-all duration-200 border-2 border-transparent border-gray-100 focus:outline-none rounded-md mt-4 px-4 py-2 text-gray-600 hover:border-primary"
