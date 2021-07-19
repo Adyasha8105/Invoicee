@@ -18,13 +18,17 @@ const InvoiceDetails = () => {
     console.log({ currentInvoice }); 
 
     function onChangeHandler(evt) {
+        dispatch(updateCurrentInvoice("details", {
+            ...input,
+            [evt.target.name]: evt.target.value,
+        })); 
         const value = evt.target.value;
         setInput({
             ...input,
             [evt.target.name]: value,
         });
 
-        dispatch(updateCurrentInvoice("details", input)); 
+       
     }
 
     return (

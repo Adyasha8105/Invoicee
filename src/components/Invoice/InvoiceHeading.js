@@ -11,16 +11,18 @@ const InvoiceHeading = () => {
     const currentInvoice = useSelector((state) => state.invoiceReducer); 
     const dispatch = useDispatch(); 
 
+    console.log(state.invoice); 
     console.log("changing invoice heading");
     console.log({ currentInvoice }); 
 
     function onChangeHandler(evt) {
+        dispatch(updateCurrentInvoice("title", evt.target.value)); 
         const value = evt.target.value;
         setState({
             ...state,
             [evt.target.name]: value,
         });
-        dispatch(updateCurrentInvoice("title", state.invoice)); 
+        
     }
 
     return (

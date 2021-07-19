@@ -25,9 +25,9 @@ function Navbar() {
   return (
     <div>
       <nav className="bg-white blur shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-row w-full items-center justify-between h-16">
+            <div className="flex flex-row items-center justify-between">
               <div className="flex-shrink-0">
                 <Link className="block">
                   <img
@@ -46,7 +46,9 @@ function Navbar() {
                   />
                 </Link>
               </div>
-              <div className="hidden md:block">
+            </div>
+
+            <div className="hidden md:flex md:flex-row md:space-x-4">
                 <div className="ml-10 flex items-baseline space-x-4 justify-end flex-wrap items-center flex-grow">
                   <Link className="font-bold text-gray-400 hover:opacity-75 px-5 py-3 flex items-center transition duration-150 ease-in-out">
                     Draft
@@ -59,7 +61,7 @@ function Navbar() {
                   </button>
 
                   <div className="rounded-md text-sm font-medium">
-                    <div className="flex flex-row w-full">
+                    <div className="flex flex-row w-full space-x-4">
                       <div className="self-center pr-2 text-primary font-semibold">
                         {user.displayName}
                       </div>
@@ -72,8 +74,8 @@ function Navbar() {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="-mr-2 flex md:hidden">
+
+            <div className="mr-2 flex md:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"
