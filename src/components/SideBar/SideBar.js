@@ -81,10 +81,12 @@ export default function SideBar() {
 
     dispatch(updateCurrentInvoice("summary", summary));
     console.log({ invoiceState });
-    invoicepdf(invoiceState);
+    invoicepdf(invoiceState, false);
   };
 
-  const downloadPdf = () => {};
+  const downloadPdf = () => {
+    invoicepdf(invoiceState, true);
+  };
 
   return (
     <div className="py-4 px-10 w-auto flex flex-col justify-between">

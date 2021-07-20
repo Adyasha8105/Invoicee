@@ -1,13 +1,15 @@
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 
-export default function Invoicepdf(data) {
+export default function Invoicepdf(data, download) {
   var doc = new jsPDF();
 
   generateHeader(doc, data);
 
   window.open(doc.output("bloburl"));
-  // doc.save("generated.pdf")
+  if (download === true) {
+    doc.save("generated.pdf");
+  }
 }
 
 // function to generate header part of the invoice
