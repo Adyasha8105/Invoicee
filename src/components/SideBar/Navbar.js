@@ -1,54 +1,53 @@
-import React, { useState } from "react";
-import { Transition } from "@headlessui/react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+// import { Transition } from "@headlessui/react";
+// import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import firebase from "../../firebase/firebase";
-import { useHistory } from "react-router";
-import { logout } from "../../actions/index";
+// import firebase from "../../firebase/firebase";
+// import { useHistory } from "react-router";
+// import { logout } from "../../actions/index";
 
 function Navbar() {
-  const user = useSelector((state) => state.userReducer.user);
-  const dispatch = useDispatch();
-  const history = useHistory();
-  const handleLogout = (e) => {
-    e.preventDefault();
-    firebase
-      .auth()
-      .signOut()
-      .then(() => {
-        dispatch(logout);
-        history.push("/");
-      });
-  };
+  // const user = useSelector((state) => state.userReducer.user);
+  // const dispatch = useDispatch();
+  // const history = useHistory();
+  // const handleLogout = (e) => {
+  //   e.preventDefault();
+  //   firebase
+  //     .auth()
+  //     .signOut()
+  //     .then(() => {
+  //       dispatch(logout);
+  //       history.push("/");
+  //     });
+  // };
 
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
   return (
     <div>
       <nav className="bg-white blur shadow-lg">
-        <div className="mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-row w-full items-center justify-between h-16">
-            <div className="flex flex-row items-center justify-between">
-              <div className="flex-shrink-0">
-                <Link className="block">
-                  <img
-                    src={require("../../Images/Mainlogo.svg").default}
-                    width="150"
-                    height="96"
-                    alt="logo"
-                    className="hidden md:block"
-                  />
-                  <img
+        <div className="max-w-7xl mx-auto px-5 sm:px-6">
+          <div className="flex items-center justify-between h-16 md:h-20">
+            <div className="flex-shrink-0">
+              <Link className="block">
+                <img
+                  src={require("../../Images/Mainlogo.svg").default}
+                  width="150"
+                  height="96"
+                  alt="logo"
+                  // className="hidden md:block"
+                />
+                {/* <img
                     src={require("../../Images/Favicon.svg").default}
                     width="26"
                     height="26"
                     alt="logo"
                     className="block md:hidden"
-                  />
-                </Link>
-              </div>
+                  /> */}
+              </Link>
             </div>
+          </div>
 
-            <div className="hidden md:flex md:flex-row md:space-x-4">
+          {/* <div className="hidden md:flex md:flex-row md:space-x-4">
               <div className="ml-10 flex items-baseline space-x-4 justify-end flex-wrap items-center flex-grow">
                 <Link className="font-bold text-gray-400 hover:opacity-75 px-5 py-3 flex items-center transition duration-150 ease-in-out">
                   Draft
@@ -73,9 +72,9 @@ function Navbar() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
 
-            <div className="mr-2 flex md:hidden">
+          {/* <div className="mr-2 flex md:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"
@@ -118,11 +117,10 @@ function Navbar() {
                   </svg>
                 )}
               </button>
-            </div>
-          </div>
+            </div> */}
         </div>
 
-        <Transition
+        {/* <Transition
           show={isOpen}
           enter="transition ease-out duration-100 transform"
           enterFrom="opacity-0 scale-95"
@@ -161,7 +159,7 @@ function Navbar() {
               </div>
             </div>
           )}
-        </Transition>
+        </Transition> */}
       </nav>
     </div>
   );

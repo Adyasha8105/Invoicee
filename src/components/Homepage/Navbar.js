@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { loginUsingGoogle } from "../../actions";
-import { useDispatch, useSelector } from "react-redux";
-import firebase from "../../firebase/firebase";
-import { useHistory } from "react-router-dom";
+// import { loginUsingGoogle } from "../../actions";
+// import { useDispatch, useSelector } from "react-redux";
+// import firebase from "../../firebase/firebase";
+// import { useHistory } from "react-router-dom";
 
 function Navbar() {
   const [top, setTop] = useState(true);
 
-  const dispatch = useDispatch();
-  const userState = useSelector((state) => state.userReducer.user);
+  // const dispatch = useDispatch();
+  // const userState = useSelector((state) => state.userReducer.user);
 
-  const history = useHistory();
+  // const history = useHistory();
 
   useEffect(() => {
     const scrollHandler = () => {
@@ -21,33 +21,33 @@ function Navbar() {
     return () => window.removeEventListener("scroll", scrollHandler);
   }, [top]);
 
-  useEffect(() => {
-    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        dispatch(loginUsingGoogle(userState));
-      }
-    });
-    return unsubscribe();
-    // eslint-disable-next-line
-  }, []);
+  // useEffect(() => {
+  //   const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+  //     if (user) {
+  //       dispatch(loginUsingGoogle(userState));
+  //     }
+  //   });
+  //   return unsubscribe();
+  //   // eslint-disable-next-line
+  // }, []);
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    firebase
-      .auth()
-      .setPersistence("session")
-      .then(() => {
-        var provider = new firebase.auth.GoogleAuthProvider();
-        firebase
-          .auth()
-          .signInWithPopup(provider)
-          .then((result) => {
-            dispatch(loginUsingGoogle(result.user));
-            history.push("/invoice");
-          })
-          .catch((err) => console.log(err));
-      });
-  };
+  // const handleLogin = (e) => {
+  //   e.preventDefault();
+  //   firebase
+  //     .auth()
+  //     .setPersistence("session")
+  //     .then(() => {
+  //       var provider = new firebase.auth.GoogleAuthProvider();
+  //       firebase
+  //         .auth()
+  //         .signInWithPopup(provider)
+  //         .then((result) => {
+  //           dispatch(loginUsingGoogle(result.user));
+  //           history.push("/invoice");
+  //         })
+  //         .catch((err) => console.log(err));
+  //     });
+  // };
 
   return (
     <header
@@ -64,19 +64,19 @@ function Navbar() {
                 width="150"
                 height="96"
                 alt="logo"
-                className="hidden md:block"
+                // className="hidden md:block"
               />
-              <img
+              {/* <img
                 src={require("../../Images/Favicon.svg").default}
                 width="26"
                 height="26"
                 alt="logo"
                 className="block md:hidden"
-              />
+              /> */}
             </Link>
           </div>
 
-          <nav className="flex flex-grow">
+          {/* <nav className="flex flex-grow">
             <ul className="flex flex-grow justify-end flex-wrap items-center">
               <li>
                 <Link
@@ -100,7 +100,7 @@ function Navbar() {
                 </Link>
               </li>
             </ul>
-          </nav>
+          </nav> */}
         </div>
       </div>
     </header>
