@@ -1,10 +1,10 @@
 import jsPDF from "jspdf";
+import "jspdf-autotable";
 
 export default function Invoicepdf(data) {
   var doc = new jsPDF();
 
   generateHeader(doc, data);
-  generateInvoice(doc, data);
 
   window.open(doc.output("bloburl"));
   // doc.save("generated.pdf")
@@ -12,32 +12,8 @@ export default function Invoicepdf(data) {
 
 // function to generate header part of the invoice
 function generateHeader(doc, data) {
-  var logo = data.logo;
-
-  // var element = document.createElement("div");
-  // element.innerHTML = logo;
-
-  // var imageFormat = logo.substring(
-  //   '<img src="data:image/'.length,
-  //   logo.search(";base64")
-  // );
-  // doc.addImage(
-  //   element.firstChild,
-  //   imageFormat,
-  //   15,
-  //   10,
-  //   35,
-  //   35,
-  //   "company_logo",
-  //   "NONE",
-  //   0
-  // );
-  // x_pos += 40;
-
-  var img = new Image();
-  img.src = logo;
-
-  doc.addImage(img, "PNG", 10, 15);
+  var title = data.title;
+  var imageData = data.logo;
 
   // sender details
   var company = data.sender.desgination;
@@ -59,22 +35,39 @@ function generateHeader(doc, data) {
   var recipientTaxReg = data.recipient.tax_regd_no;
   var recipientOthers = data.recipient.others;
 
-  var x_pos = 45;
-  var y_pos = 40;
+  var x_pos = 15;
+  var y_pos = 20;
+
+  doc.setFontSize(25);
+  doc.setFont("Helvetica", "bold");
+  doc.setTextColor(0, 0, 0);
+
+  if (title) {
+    doc.text(15, y_pos, title);
+  }
+
+  if (imageData) {
+    doc.addImage(imageData, "PNG", 160, y_pos - 10, 20, 20);
+    y_pos += 10;
+  }
 
   doc.setFontSize(15);
   doc.setFont("helvetica", "bold");
   doc.setTextColor(65, 160, 240);
 
-  y_pos += 7;
-  doc.text(x_pos, y_pos, company);
+  y_pos += 15;
+  if (company) {
+    doc.text(x_pos, y_pos, company);
+  }
 
   doc.setTextColor(0, 0, 0);
   doc.setFontSize(13);
   doc.setFont("helvetica", "normal");
 
   y_pos += 6;
-  doc.text(x_pos, y_pos, senderName);
+  if (senderName) {
+    doc.text(x_pos, y_pos, senderName);
+  }
 
   // add only entered details into pdf
   if (senderEmail) {
@@ -107,7 +100,9 @@ function generateHeader(doc, data) {
     doc.text(x_pos, y_pos, senderOthers);
   }
 
-  y_pos = 10;
+  if (y_pos > 35) y_pos = 45;
+  else y_pos = 35;
+
   x_pos = 120;
 
   doc.setFontSize(15);
@@ -115,7 +110,6 @@ function generateHeader(doc, data) {
   doc.setTextColor(65, 160, 240);
 
   if (recipientCompany) {
-    y_pos += 7;
     doc.text(x_pos, y_pos, recipientCompany);
   }
 
@@ -124,52 +118,54 @@ function generateHeader(doc, data) {
   doc.setTextColor(0, 0, 0);
 
   if (recipientName) {
-    y_pos += 5;
+    y_pos += 6;
     doc.text(x_pos, y_pos, recipientName);
   }
 
   if (recipientEmail) {
-    y_pos += 5;
+    y_pos += 6;
     doc.text(x_pos, y_pos, recipientEmail);
   }
 
   if (recipientAddress) {
-    y_pos += 5;
+    y_pos += 6;
     doc.text(x_pos, y_pos, recipientAddress);
   }
 
   if (recipientCountry) {
-    y_pos += 5;
+    y_pos += 6;
     doc.text(x_pos, y_pos, recipientCountry);
   }
 
   if (recipientPhone) {
-    y_pos += 5;
+    y_pos += 6;
     doc.text(x_pos, y_pos, "Phone : " + recipientPhone);
   }
 
   if (recipientTaxReg) {
-    y_pos += 5;
+    y_pos += 6;
     doc.text(x_pos, y_pos, "Tax Regd. No. : " + recipientTaxReg);
   }
 
   if (recipientOthers) {
-    y_pos += 5;
+    y_pos += 6;
     doc.text(x_pos, y_pos, recipientOthers);
   }
 
   // line to mark the end of header
   // y_pos += 6;
   // doc.line(10, y_pos, 200, y_pos);
+
+  generateInvoice(doc, data, y_pos);
 }
 
 // function to generate lower part of the invoice
-function generateInvoice(doc, data) {
-  doc.setFontSize(15);
+function generateInvoice(doc, data, y_pos) {
+  doc.setFontSize(10);
   doc.setTextColor(65, 160, 240);
-  doc.setFont("helvetica", "bold");
+  doc.setFont("helvetica", "normal");
 
-  doc.text(85, 70, "BILL RECEIPT");
+  // doc.text(85, 70, "BILL RECEIPT");
 
   doc.setTextColor(0, 0, 0);
 
@@ -177,7 +173,6 @@ function generateInvoice(doc, data) {
   var invoiceDate = data.details.invoiceDate;
   var invoiceDueDate = data.details.invoiceDueDate;
 
-  var y_pos = 73;
   var x_pos = 15;
 
   if (invoiceNo) {
@@ -186,16 +181,90 @@ function generateInvoice(doc, data) {
   }
 
   if (invoiceDate) {
-    x_pos += 60;
+    x_pos += 70;
     doc.text(x_pos, y_pos, "Date : " + invoiceDate);
   }
 
   if (invoiceDueDate) {
-    x_pos += 60;
+    x_pos += 65;
     doc.text(x_pos, y_pos, "Invoice Due Date : " + invoiceDueDate);
   }
 
-  generatePurchaseList(doc, data);
+  generatePurchaseList(doc, data, y_pos);
 }
 
-function generatePurchaseList(doc, data) {}
+function financial(x) {
+  return Number.parseFloat(x).toFixed(2);
+}
+
+function generatePurchaseList(doc, data, y_pos) {
+  var purchaseList = data.billItems;
+  var summary = data.summary;
+  var discount = data.summary.discount;
+  var vat = data.summary.vat;
+  var subtotal = data.summary.subtotal;
+
+  //if (purchaseList.length < 1) {
+  //  return;
+  //}
+
+  var items = [];
+  var gapHeight = purchaseList.length;
+  for (var i = 0; i < purchaseList.length; i++) {
+    var item = purchaseList[i];
+    items.push([
+      item.itemName,
+      item.quantity,
+      item.rate + " (+" + financial(item.quantity * item.rate) + ")",
+      item.tax +
+        "% (+" +
+        financial((item.tax / 100.0) * (item.quantity * item.rate)) +
+        ")",
+      financial(item.subtotal),
+    ]);
+    if (item.others) {
+      items.push([item.others]);
+      gapHeight++;
+    }
+  }
+
+  y_pos += 15;
+
+  doc.autoTable({
+    startY: y_pos,
+    halign: "center",
+    head: [["Name", "Qty", "Cost", "Tax(in %)", "Total"]],
+    body: items,
+  });
+
+  y_pos += gapHeight * 15 + 15;
+
+  doc.autoTable({
+    startY: y_pos,
+    halign: "right",
+    body: [
+      ["Subtotal", summary.subtotal],
+      ["Tax", summary.tax],
+      [
+        `Discount (${discount}%)`,
+        (discount * 0.01 * Number(subtotal)).toFixed(2),
+      ],
+      [`VAT (${vat}%)`, (vat * 0.01 * Number(subtotal)).toFixed(2)],
+      [
+        "total",
+        (
+          Number(subtotal) +
+          Number(summary.tax) +
+          Number(vat) * 0.01 * Number(subtotal) -
+          Number(discount) * 0.01 * Number(subtotal)
+        ).toFixed(2),
+      ],
+    ],
+  });
+
+  // additional notes
+  if (data.additional) {
+    y_pos += 85;
+    doc.text(15, y_pos, data.additional);
+  }
+}

@@ -49,31 +49,31 @@ function Navbar() {
             </div>
 
             <div className="hidden md:flex md:flex-row md:space-x-4">
-                <div className="ml-10 flex items-baseline space-x-4 justify-end flex-wrap items-center flex-grow">
-                  <Link className="font-bold text-gray-400 hover:opacity-75 px-5 py-3 flex items-center transition duration-150 ease-in-out">
-                    Draft
-                  </Link>
-                  <button
-                    onClick={handleLogout}
-                    className="font-bold text-gray-400 hover:opacity-75 py-3 flex items-center transition duration-150 ease-in-out"
-                  >
-                    Logout
-                  </button>
+              <div className="ml-10 flex items-baseline space-x-4 justify-end flex-wrap items-center flex-grow">
+                <Link className="font-bold text-gray-400 hover:opacity-75 px-5 py-3 flex items-center transition duration-150 ease-in-out">
+                  Draft
+                </Link>
+                <button
+                  onClick={handleLogout}
+                  className="font-bold text-gray-400 hover:opacity-75 py-3 flex items-center transition duration-150 ease-in-out"
+                >
+                  Logout
+                </button>
 
-                  <div className="rounded-md text-sm font-medium">
-                    <div className="flex flex-row w-full space-x-4">
-                      <div className="self-center pr-2 text-primary font-semibold">
-                        {user.displayName}
-                      </div>
-                      <img
-                        src={user.photoURL}
-                        alt="user"
-                        className="w-10 h-10 rounded-full"
-                      />
+                <div className="rounded-md text-sm font-medium">
+                  <div className="flex flex-row w-full space-x-4">
+                    <div className="self-center pr-2 text-primary font-semibold">
+                      {user.displayName}
                     </div>
+                    <img
+                      src={user.photoURL}
+                      alt="user"
+                      className="w-10 h-10 rounded-full"
+                    />
                   </div>
                 </div>
               </div>
+            </div>
 
             <div className="mr-2 flex md:hidden">
               <button

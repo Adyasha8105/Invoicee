@@ -36,6 +36,7 @@ const initialState = {
         vat: "", 
         total: "", 
     },  
+		currency: "", 
     additional: "", 
 }; 
 

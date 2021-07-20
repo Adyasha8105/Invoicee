@@ -3,7 +3,12 @@ import { AiOutlineEye } from "react-icons/ai";
 import { FiDownload } from "react-icons/fi";
 import options from "../../data/currencysymbol.json";
 import { useDispatch, useSelector } from "react-redux";
-import { updateCurrency, addDiscount, addVAT } from "../../actions";
+import {
+  updateCurrency,
+  addDiscount,
+  addVAT,
+  updateCurrentInvoice,
+} from "../../actions";
 import invoicepdf from "../Invoicepdf/Invoicepdf";
 
 export default function SideBar() {
@@ -14,27 +19,68 @@ export default function SideBar() {
     value: "",
   });
 
+  const subtotalList = useSelector((state) => state.billReducer.billItems);
+
   const invoiceState = useSelector((state) => state.invoiceReducer);
 
   const handleChange = (e) => {
     const value = e.target.value;
     setCurrency({ ...currency, [e.target.name]: value });
     dispatch(updateCurrency(value));
+    dispatch(updateCurrentInvoice("currency", value));
   };
 
   const updateDiscountChange = (e) => {
     const value = e.target.value;
     setDiscount(value);
     dispatch(addDiscount(value));
+    var summary = {
+      subtotal: invoiceState.summary.subtotal,
+      tax: invoiceState.summary.tax,
+      discount: value,
+      vat: invoiceState.summary.vat,
+      total: invoiceState.summary.total,
+    };
+    dispatch(updateCurrentInvoice("summary", summary));
   };
 
   const updateVAT = (e) => {
     const value = e.target.value;
     setVat(value);
     dispatch(addVAT(value));
+    var summary = {
+      subtotal: invoiceState.summary.subtotal,
+      tax: invoiceState.summary.tax,
+      discount: invoiceState.summary.discount,
+      vat: value,
+      total: invoiceState.summary.total,
+    };
+    dispatch(updateCurrentInvoice("summary", summary));
   };
 
   const previewPdf = () => {
+    var tempSubtotal = 0;
+    subtotalList.forEach((val) => {
+      tempSubtotal += Number(val.subtotal);
+    });
+
+    var tempTotal = (
+      Number(tempSubtotal) +
+      Number(invoiceState.summary.tax) +
+      Number(invoiceState.summary.vat) * 0.01 * Number(tempSubtotal) -
+      Number(invoiceState.summary.discount) * 0.01 * Number(tempSubtotal)
+    ).toFixed(2);
+
+    var summary = {
+      subtotal: tempSubtotal,
+      tax: invoiceState.summary.tax,
+      discount: invoiceState.summary.discount,
+      vat: invoiceState.summary.vat,
+      total: tempTotal,
+    };
+
+    dispatch(updateCurrentInvoice("summary", summary));
+    console.log({ invoiceState });
     invoicepdf(invoiceState);
   };
 
