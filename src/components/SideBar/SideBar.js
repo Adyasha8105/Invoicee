@@ -126,7 +126,7 @@ export default function SideBar() {
             className="p-2 bg-gray-50 text-sm border-opacity-20 border-gray-200 rounded-md hover:border-primary focus:outline-none p-1"
           >
             {options.map((option) => (
-              <option value={option.value}>{option.label}</option>
+              <option value={option.value} key={option.value}>{option.label}</option>
             ))}
           </select>
         </div>

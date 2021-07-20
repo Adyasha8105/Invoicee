@@ -28,7 +28,7 @@ function Navbar() {
         <div className="max-w-7xl mx-auto px-5 sm:px-6">
           <div className="flex items-center justify-between h-16 md:h-20">
             <div className="flex-shrink-0">
-              <Link className="block">
+              <Link to="/" className="block">
                 <img
                   src={require("../../Images/Mainlogo.svg").default}
                   width="150"
