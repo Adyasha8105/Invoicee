@@ -40,7 +40,7 @@ function generateHeader(doc, data) {
   var x_pos = 15;
   var y_pos = 20;
 
-  doc.setFontSize(25);
+  doc.setFontSize(35);
   doc.setFont("Helvetica", "bold");
   doc.setTextColor(0, 0, 0);
 
@@ -55,9 +55,8 @@ function generateHeader(doc, data) {
 
   doc.setFontSize(15);
   doc.setFont("helvetica", "bold");
-  doc.setTextColor(65, 160, 240);
 
-  y_pos += 15;
+  y_pos += 25;
   if (company) {
     doc.text(x_pos, y_pos, company);
   }
@@ -71,7 +70,6 @@ function generateHeader(doc, data) {
     doc.text(x_pos, y_pos, senderName);
   }
 
-  // add only entered details into pdf
   if (senderEmail) {
     y_pos += 6;
     doc.text(x_pos, y_pos, senderEmail);
@@ -88,7 +86,7 @@ function generateHeader(doc, data) {
   }
 
   if (senderPhone) {
-    y_pos += 6;
+    y_pos += 12;
     doc.text(x_pos, y_pos, "Phone : " + senderPhone);
   }
 
@@ -102,14 +100,13 @@ function generateHeader(doc, data) {
     doc.text(x_pos, y_pos, senderOthers);
   }
 
-  if (y_pos > 35) y_pos = 45;
-  else y_pos = 35;
+  if (y_pos > 45) y_pos = 55;
+  else y_pos = 45;
 
   x_pos = 120;
 
   doc.setFontSize(15);
   doc.setFont("helvetica", "bold");
-  doc.setTextColor(65, 160, 240);
 
   if (recipientCompany) {
     doc.text(x_pos, y_pos, recipientCompany);
@@ -140,7 +137,7 @@ function generateHeader(doc, data) {
   }
 
   if (recipientPhone) {
-    y_pos += 6;
+    y_pos += 12;
     doc.text(x_pos, y_pos, "Phone : " + recipientPhone);
   }
 
@@ -163,7 +160,7 @@ function generateHeader(doc, data) {
 
 // function to generate lower part of the invoice
 function generateInvoice(doc, data, y_pos) {
-  doc.setFontSize(10);
+  doc.setFontSize(13);
   doc.setTextColor(65, 160, 240);
   doc.setFont("helvetica", "normal");
 
@@ -178,17 +175,17 @@ function generateInvoice(doc, data, y_pos) {
   var x_pos = 15;
 
   if (invoiceNo) {
-    y_pos += 10;
+    y_pos += 20;
     doc.text(x_pos, y_pos, "Invoice No. : " + invoiceNo);
   }
 
   if (invoiceDate) {
-    x_pos += 70;
+    x_pos += 60;
     doc.text(x_pos, y_pos, "Date : " + invoiceDate);
   }
 
   if (invoiceDueDate) {
-    x_pos += 65;
+    x_pos += 50;
     doc.text(x_pos, y_pos, "Invoice Due Date : " + invoiceDueDate);
   }
 
@@ -206,6 +203,9 @@ function generatePurchaseList(doc, data, y_pos) {
   var vat = data.summary.vat;
   var subtotal = data.summary.subtotal;
 
+  var currency = data.currency;
+  if (!currency) currency = "Rs";
+
   //if (purchaseList.length < 1) {
   //  return;
   //}
@@ -216,16 +216,22 @@ function generatePurchaseList(doc, data, y_pos) {
     var item = purchaseList[i];
     items.push([
       item.itemName,
-      item.quantity,
-      item.rate + " (+" + financial(item.quantity * item.rate) + ")",
+      currency + ". " + item.quantity,
+      currency +
+        ". " +
+        item.rate +
+        " (+" +
+        financial(item.quantity * item.rate) +
+        ")",
+
       item.tax +
         "% (+" +
         financial((item.tax / 100.0) * (item.quantity * item.rate)) +
         ")",
-      financial(item.subtotal),
+      currency + ". " + financial(item.subtotal),
     ]);
-    if (item.others) {
-      items.push([item.others]);
+    if (item.description) {
+      items.push([item.description]);
       gapHeight++;
     }
   }
@@ -235,7 +241,7 @@ function generatePurchaseList(doc, data, y_pos) {
   doc.autoTable({
     startY: y_pos,
     halign: "center",
-    head: [["Name", "Qty", "Cost", "Tax(in %)", "Total"]],
+    head: [["Name", "Qty", "Rate", "Tax(in %)", "Total"]],
     body: items,
   });
 
@@ -245,21 +251,26 @@ function generatePurchaseList(doc, data, y_pos) {
     startY: y_pos,
     halign: "right",
     body: [
-      ["Subtotal", summary.subtotal],
-      ["Tax", summary.tax],
+      ["Subtotal", currency + ". " + summary.subtotal],
+      ["Tax", currency + ". " + summary.tax],
       [
         `Discount (${discount}%)`,
-        (discount * 0.01 * Number(subtotal)).toFixed(2),
+        currency + ". " + (discount * 0.01 * Number(subtotal)).toFixed(2),
       ],
-      [`VAT (${vat}%)`, (vat * 0.01 * Number(subtotal)).toFixed(2)],
       [
-        "total",
-        (
-          Number(subtotal) +
-          Number(summary.tax) +
-          Number(vat) * 0.01 * Number(subtotal) -
-          Number(discount) * 0.01 * Number(subtotal)
-        ).toFixed(2),
+        `VAT (${vat}%)`,
+        currency + ". " + (vat * 0.01 * Number(subtotal)).toFixed(2),
+      ],
+      [
+        "Total",
+        currency +
+          ". " +
+          (
+            Number(subtotal) +
+            Number(summary.tax) +
+            Number(vat) * 0.01 * Number(subtotal) -
+            Number(discount) * 0.01 * Number(subtotal)
+          ).toFixed(2),
       ],
     ],
   });
@@ -267,6 +278,6 @@ function generatePurchaseList(doc, data, y_pos) {
   // additional notes
   if (data.additional) {
     y_pos += 85;
-    doc.text(15, y_pos, data.additional);
+    doc.text(15, 290, data.additional);
   }
 }
