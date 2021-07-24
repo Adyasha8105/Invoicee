@@ -72,7 +72,7 @@ const InvoiceSummary = () => {
           <div className="text-sm w-4/5">
             Tax
             <input
-              type="Text"
+              type="number"
               className="mx-1 px-1 col-span-1 border border-gray-300 w-12"
               name="tax"
               value={input.tax}
